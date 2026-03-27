@@ -1076,11 +1076,10 @@ async function callFunction(name, options = {}) {
   const headers = {
     'Content-Type': 'application/json',
     'x-region': 'eu-west-1',
+    'Authorization': 'Bearer ' + (window._authToken || SUPABASE_ANON_KEY), // 👈 fallback to anon key
+    'apikey': SUPABASE_ANON_KEY, // 👈 add this too
     ...(options.headers || {}),
   };
-  if (window._authToken) {
-    headers['Authorization'] = 'Bearer ' + window._authToken;
-  }
   const invokeOptions = { ...options, headers };
   const { data, error } = await _supabase.functions.invoke(name, invokeOptions);
   if (error) throw error;
