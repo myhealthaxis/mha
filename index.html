@@ -1082,9 +1082,6 @@ async function callFunction(name, options = {}) {
     headers['Authorization'] = 'Bearer ' + window._authToken;
   }
   const invokeOptions = { ...options, headers };
-  if (invokeOptions.body && typeof invokeOptions.body === 'object') {
-    invokeOptions.body = JSON.stringify(invokeOptions.body);
-  }
   const { data, error } = await _supabase.functions.invoke(name, invokeOptions);
   if (error) throw error;
   return data;
