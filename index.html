@@ -1073,16 +1073,20 @@ const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // Helper: call an Edge Function pinned to eu-west-1 Dublin
 async function callFunction(name, options = {}) {
-  const headers = {
-    'Content-Type': 'application/json',
-    'x-region': 'eu-west-1',
-    'Authorization': 'Bearer ' + (window._authToken || SUPABASE_ANON_KEY), // 👈 fallback to anon key
-    'apikey': SUPABASE_ANON_KEY, // 👈 add this too
-    ...(options.headers || {}),
-  };
-  const invokeOptions = { ...options, headers };
-  const { data, error } = await _supabase.functions.invoke(name, invokeOptions);
-  if (error) throw error;
+  const response = await fetch(`${SUPABASE_URL}/functions/v1/${name}`, {
+    method: options.method || 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + (window._authToken || SUPABASE_ANON_KEY),
+      'apikey': SUPABASE_ANON_KEY,
+      'x-region': 'eu-west-1',
+      ...(options.headers || {}),
+    },
+    body: options.body ? JSON.stringify(options.body) : undefined,
+  });
+
+  const data = await response.json();
+  if (!response.ok) throw new Error(data.error || `HTTP ${response.status}`);
   return data;
 }
 
