@@ -2213,7 +2213,7 @@ function adminNav(section) {
   renderAdminSection();
 }
 
-function renderAdminSection() {
+async function renderAdminSection() {
   const c = document.getElementById('admin-main-content');
   if (!c) return;
 
@@ -2227,7 +2227,7 @@ function renderAdminSection() {
   };
 
   const fn = sections[adminSection];
-  if (fn) c.innerHTML = fn();
+  if (fn) await fn();
   updateAdminBadges();
 }
 
@@ -2316,37 +2316,54 @@ function renderAdminProfessionals() {
     </div>`;
 }
 
-function renderAdminPending() {
-  if (pendingRegistrations.length === 0) {
-    return `<div class="admin-header-bar"><div class="admin-title">Pending Approvals</div></div>
-      <div class="card" style="text-align:center;padding:48px;color:var(--text-muted)">
-        <div style="font-size:40px;margin-bottom:12px">✅</div>
-        <div style="font-size:16px;font-weight:500">No pending registrations</div>
-      </div>`;
+async function renderAdminPending() {
+  const c = document.getElementById('admin-main-content');
+  c.innerHTML = `<div class="admin-header-bar"><div class="admin-title">Pending Approvals</div></div>
+    <div style="text-align:center;padding:48px;color:var(--text-muted)">Loading...</div>`;
+
+  try {
+    const result = await callFunction('admin-manage', {
+      method: 'POST',
+      body: { action: 'get_pending' },
+    });
+    const list = result.professionals || [];
+
+    if (list.length === 0) {
+      c.innerHTML = `<div class="admin-header-bar"><div class="admin-title">Pending Approvals</div></div>
+        <div class="card" style="text-align:center;padding:48px;color:var(--text-muted)">
+          <div style="font-size:40px;margin-bottom:12px">✅</div>
+          <div style="font-size:16px;font-weight:500">No pending registrations</div>
+        </div>`;
+      return;
+    }
+
+    c.innerHTML = `<div class="admin-header-bar"><div class="admin-title">Pending Approvals (${list.length})</div></div>` +
+      list.map(d => `
+        <div class="card" style="margin-bottom:16px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px">
+            <div>
+              <div style="font-family:var(--font-display);font-size:17px;font-weight:700">${d.title || ''} ${d.first_name} ${d.last_name}</div>
+              <div style="color:var(--text-secondary);font-size:14px;margin-top:4px">${d.specialty || '–'} · ${d.practice_name || '–'}, ${d.city || '–'}</div>
+              <div style="font-size:13px;color:var(--text-muted);margin-top:4px">Reg: ${d.reg_number || 'N/A'} · ${d.email}</div>
+            </div>
+            <div style="display:flex;gap:8px">
+              <button class="btn btn-accent btn-sm" onclick="approveRegistration('${d.id}')">✓ Approve</button>
+              <button class="btn btn-danger btn-sm" onclick="rejectRegistration('${d.id}')">✕ Reject</button>
+            </div>
+          </div>
+          <div style="margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;font-size:13px">
+            <div><span style="color:var(--text-muted)">Experience:</span> ${d.experience || '–'}</div>
+            <div><span style="color:var(--text-muted)">Phone:</span> ${d.phone || '–'}</div>
+            <div><span style="color:var(--text-muted)">Fee:</span> €${d.fee_min || '?'}–€${d.fee_max || '?'}</div>
+          </div>
+          ${d.bio ? `<div style="margin-top:12px;font-size:13px;color:var(--text-secondary);padding:12px;background:var(--bg-surface);border-radius:var(--radius-sm)">${d.bio}</div>` : ''}
+        </div>
+      `).join('');
+  } catch (err) {
+    console.error('Error loading pending:', err);
+    c.innerHTML = `<div class="admin-header-bar"><div class="admin-title">Pending Approvals</div></div>
+      <div class="card" style="text-align:center;padding:48px;color:var(--danger)">Failed to load — ${err.message}</div>`;
   }
-  return `
-    <div class="admin-header-bar"><div class="admin-title">Pending Approvals (${pendingRegistrations.length})</div></div>
-    ${pendingRegistrations.map(d => `
-      <div class="card" style="margin-bottom:16px">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px">
-          <div>
-            <div style="font-family:var(--font-display);font-size:17px;font-weight:700">${d.title} ${d.firstName} ${d.lastName}</div>
-            <div style="color:var(--text-secondary);font-size:14px;margin-top:4px">${d.specialty} · ${d.practiceName}, ${d.city}</div>
-            <div style="font-size:13px;color:var(--text-muted);margin-top:4px">Reg: ${d.regNumber || 'N/A'} · ${d.email}</div>
-          </div>
-          <div style="display:flex;gap:8px">
-            <button class="btn btn-accent btn-sm" onclick="approveRegistration(${d.id})">✓ Approve</button>
-            <button class="btn btn-danger btn-sm" onclick="rejectRegistration(${d.id})">✕ Reject</button>
-          </div>
-        </div>
-        <div style="margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;font-size:13px">
-          <div><span style="color:var(--text-muted)">Experience:</span> ${d.experience}</div>
-          <div><span style="color:var(--text-muted)">Phone:</span> ${d.phone}</div>
-          <div><span style="color:var(--text-muted)">Fee:</span> €${d.feeMin}–€${d.feeMax}</div>
-        </div>
-        ${d.bio ? `<div style="margin-top:12px;font-size:13px;color:var(--text-secondary);padding:12px;background:var(--bg-surface);border-radius:var(--radius-sm)">${d.bio}</div>` : ''}
-      </div>
-    `).join('')}`;
 }
 
 function renderAdminClaims() {
@@ -2440,21 +2457,26 @@ function renderAdminSettings() {
     </div>`;
 }
 
-function approveRegistration(id) {
-  const idx = pendingRegistrations.findIndex(d => d.id === id);
-  if (idx > -1) {
-    const doc = pendingRegistrations.splice(idx, 1)[0];
-    doc.status = 'approved';
-    doctors.push(doc);
+async function approveRegistration(id) {
+  if (!confirm('Approve this professional?')) return;
+  try {
+    await callFunction('admin-manage', { method: 'POST', body: { action: 'approve_professional', id } });
     showToast('Professional approved and listed!', 'success');
-    renderAdminSection();
-    updateAdminBadges();
+    await renderAdminPending();
+  } catch (err) {
+    showToast(err.message || 'Failed to approve', 'error');
   }
 }
 
-function rejectRegistration(id) {
-  const idx = pendingRegistrations.findIndex(d => d.id === id);
-  if (idx > -1) { pendingRegistrations.splice(idx, 1); showToast('Registration rejected.'); renderAdminSection(); updateAdminBadges(); }
+async function rejectRegistration(id) {
+  if (!confirm('Reject this registration?')) return;
+  try {
+    await callFunction('admin-manage', { method: 'POST', body: { action: 'reject_professional', id } });
+    showToast('Registration rejected.', 'success');
+    await renderAdminPending();
+  } catch (err) {
+    showToast(err.message || 'Failed to reject', 'error');
+  }
 }
 
 function approveClaim(id) {
