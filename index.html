@@ -2155,6 +2155,7 @@ async function adminLogin() {
     });
 
     window._authToken = result.access_token;
+    localStorage.setItem('_authToken', result.access_token);
 
     if (result.role === 'admin') {
       isAdminLoggedIn = true;
@@ -2199,6 +2200,7 @@ function logout() {
   isProfLoggedIn    = false;
   loggedInProfId    = null;
   window._authToken = null;
+  localStorage.removeItem('_authToken');
   document.getElementById('admin-nav-btn').style.display = 'none';
   document.getElementById('logout-btn').style.display    = 'none';
   showPage('home');
@@ -2603,6 +2605,14 @@ function showToast(msg, type = '') {
 }
 
 // ─── INIT ─────────────────────────────────────────────────────────────────────
+const savedToken = localStorage.getItem('_authToken');
+if (savedToken) {
+  window._authToken = savedToken;
+  isAdminLoggedIn = true;
+  document.getElementById('admin-nav-btn').style.display = 'flex';
+  document.getElementById('logout-btn').style.display = 'flex';
+}
+
 initHome();
 </script>
 </body>
