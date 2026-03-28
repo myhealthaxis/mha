@@ -2217,17 +2217,22 @@ async function renderAdminSection() {
   const c = document.getElementById('admin-main-content');
   if (!c) return;
 
+  if (adminSection === 'pending') {
+    await renderAdminPending();
+    updateAdminBadges();
+    return;
+  }
+
   const sections = {
     dashboard: renderAdminDashboard,
     professionals: renderAdminProfessionals,
-    pending: renderAdminPending,
     claims: renderAdminClaims,
     reviews: renderAdminReviews,
     settings: renderAdminSettings,
   };
 
   const fn = sections[adminSection];
-  if (fn) await fn();
+  if (fn) c.innerHTML = fn();
   updateAdminBadges();
 }
 
