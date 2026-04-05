@@ -500,9 +500,7 @@
             <stop offset="100%" stop-color="#00B8D4"/>
           </linearGradient>
         </defs>
-        <!-- Heart outline -->
         <path d="M18 26s-9-5.5-9-12a6 6 0 0 1 9-5.2A6 6 0 0 1 27 14c0 6.5-9 12-9 12z" fill="none" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
-        <!-- Medical cross -->
         <path d="M18 13v6M15 16h6" stroke="#00DCF0" stroke-width="2" stroke-linecap="round"/>
       </svg>
       <span style="font-family:var(--font-display);font-weight:800;letter-spacing:-0.3px">My<span style="color:var(--teal-bright)">Health</span>Axis</span>
@@ -511,7 +509,7 @@
       <button class="nav-link active" onclick="showPage('home')">Home</button>
       <button class="nav-link" onclick="showPage('search')">Find a Doctor</button>
       <button class="nav-link" onclick="showPage('register')">For Professionals</button>
-      <button class="nav-link" id="admin-nav-btn" onclick="showPage('admin-login')" style="display:none">Admin</button>
+      <button class="nav-link" id="admin-nav-btn" onclick="showPage('admin')" style="display:none">Admin</button>
       <button class="nav-link" id="logout-btn" onclick="logout()" style="display:none">Log Out</button>
       <button class="btn btn-primary btn-sm" onclick="showPage('admin-login')">Admin Login</button>
     </div>
@@ -520,8 +518,6 @@
 
 <!-- ═══════════════════════════════ HOME PAGE ═══════════════════════════════ -->
 <div id="home" class="page active">
-
-  <!-- Hero -->
   <section id="hero">
     <div class="hero-content">
       <div class="hero-tag">
@@ -530,7 +526,6 @@
       </div>
       <h1>Find trusted healthcare professionals across Ireland</h1>
       <p>Search thousands of verified doctors, dentists, therapists and specialists. Compare profiles, check availability, and book online in seconds.</p>
-
       <div class="search-box">
         <div class="search-field">
           <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
@@ -543,7 +538,6 @@
         </div>
         <button class="search-btn" onclick="doHeroSearch()">Search</button>
       </div>
-
       <div style="margin-top:20px;display:flex;gap:20px;justify-content:center;font-size:13px;color:rgba(255,255,255,0.75)">
         <span>🏥 15,000+ professionals</span>
         <span>⭐ 500k+ verified reviews</span>
@@ -552,7 +546,6 @@
     </div>
   </section>
 
-  <!-- Specialties -->
   <div class="section" style="background:#fff">
     <div class="section-inner">
       <div class="section-label">Browse by specialty</div>
@@ -561,7 +554,6 @@
     </div>
   </div>
 
-  <!-- How it works -->
   <div class="section" style="background:var(--bg)">
     <div class="section-inner">
       <div class="section-label">How it works</div>
@@ -586,7 +578,6 @@
     </div>
   </div>
 
-  <!-- For Professionals CTA -->
   <div class="section" style="background:linear-gradient(135deg,#003C78,#14508C 50%,#007A8F);color:#fff">
     <div class="section-inner" style="display:flex;gap:40px;align-items:center">
       <div style="flex:1">
@@ -611,7 +602,6 @@
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-inner">
       <div class="footer-grid">
@@ -640,7 +630,7 @@
           <ul class="footer-links">
             <li><a href="#">About</a></li>
             <li><a href="#">Blog</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="mailto:info@myhealthaxis.ie">Contact</a></li>
             <li><a href="#">Privacy Policy</a></li>
           </ul>
         </div>
@@ -676,7 +666,6 @@
       </select>
     </div>
   </div>
-
   <div class="search-results-layout">
     <div class="results-list">
       <div id="results-count" style="font-size:13px;color:var(--text-secondary);margin-bottom:12px;font-weight:500"></div>
@@ -707,11 +696,8 @@
       <div style="font-size:13px;color:var(--text-muted)">Already registered? <a href="#" onclick="showPage('prof-login')" style="color:var(--primary)">Log in</a></div>
     </div>
   </div>
-
   <div id="register-page" style="padding:40px 24px">
     <div style="max-width:760px;margin:0 auto">
-
-      <!-- Mode selector -->
       <div id="register-mode-select" style="text-align:center;padding:20px 0">
         <h2 style="font-family:var(--font-display);font-size:26px;font-weight:800;margin-bottom:8px">Join MyHealthAxis</h2>
         <p style="color:var(--text-secondary);margin-bottom:32px">Register a new practice or take control of an existing profile</p>
@@ -729,7 +715,6 @@
         </div>
       </div>
 
-      <!-- Claim flow -->
       <div id="claim-flow" class="hidden">
         <div class="step-header">
           <h2>Find your existing profile</h2>
@@ -757,7 +742,6 @@
         <button class="btn btn-ghost btn-sm" onclick="showRegisterModeSelect()" style="margin-top:16px">← Back</button>
       </div>
 
-      <!-- Registration form steps -->
       <div id="reg-form" class="hidden">
         <div style="margin-bottom:8px;display:flex;align-items:center;justify-content:space-between">
           <span style="font-size:13px;color:var(--text-secondary)" id="step-indicator">Step 1 of 4</span>
@@ -770,7 +754,6 @@
           <div class="progress-step" id="ps-4"></div>
         </div>
 
-        <!-- Step 1: Personal Info -->
         <div class="step-content active" id="step-1">
           <div class="step-header"><h2>Personal Information</h2><p>Basic details about you as a healthcare professional</p></div>
           <div style="display:flex;flex-direction:column;gap:16px">
@@ -793,14 +776,11 @@
           </div>
         </div>
 
-        <!-- Step 2: Professional Info -->
         <div class="step-content" id="step-2">
           <div class="step-header"><h2>Professional Details</h2><p>Your qualifications and medical credentials</p></div>
           <div style="display:flex;flex-direction:column;gap:16px">
             <div class="form-group"><label class="form-label">Primary Specialty *</label>
-              <select class="select" id="reg-specialty">
-                <option value="">Select specialty…</option>
-              </select>
+              <select class="select" id="reg-specialty"><option value="">Select specialty…</option></select>
             </div>
             <div class="form-group"><label class="form-label">Additional Specialties</label><input class="input" id="reg-subspecialties" placeholder="e.g. Cardiology, Sports Medicine (comma separated)"></div>
             <div class="form-group"><label class="form-label">Medical Council / Registration Number *</label><input class="input" id="reg-regnum" placeholder="e.g. IMC-12345"></div>
@@ -820,7 +800,6 @@
           </div>
         </div>
 
-        <!-- Step 3: Practice Info -->
         <div class="step-content" id="step-3">
           <div class="step-header"><h2>Practice Information</h2><p>Where your patients can find you</p></div>
           <div style="display:flex;flex-direction:column;gap:16px">
@@ -859,7 +838,6 @@
           </div>
         </div>
 
-        <!-- Step 4: Availability -->
         <div class="step-content" id="step-4">
           <div class="step-header"><h2>Availability & Confirmation</h2><p>Set your general availability and review your submission</p></div>
           <div style="margin-bottom:20px">
@@ -910,10 +888,7 @@
         </div>
         <div class="form-group">
           <label class="form-label">Password</label>
-          <input class="input" type="password" id="admin-password" value="admin123" placeholder="••••••••" onkeydown="if(event.key==='Enter')adminLogin()">
-        </div>
-        <div style="background:var(--bg-surface);padding:10px 14px;border-radius:var(--radius-sm);font-size:12px;color:var(--text-muted)">
-          Demo credentials: your admin email / admin123
+          <input class="input" type="password" id="admin-password" placeholder="••••••••" onkeydown="if(event.key==='Enter')adminLogin()">
         </div>
         <button class="btn btn-primary btn-full btn-lg" onclick="adminLogin()">Sign In</button>
       </div>
@@ -927,8 +902,6 @@
 <!-- ═══════════════════════════════ ADMIN PANEL ═══════════════════════════════ -->
 <div id="admin" class="page">
   <div class="flex" style="min-height:calc(100vh - 64px)">
-
-    <!-- Sidebar -->
     <div class="admin-sidebar">
       <div style="margin-bottom:24px">
         <div style="font-family:var(--font-display);font-size:16px;font-weight:700;color:#fff;margin-bottom:4px">Admin Portal</div>
@@ -968,11 +941,7 @@
         </button>
       </div>
     </div>
-
-    <!-- Admin Main -->
-    <div class="admin-main" id="admin-main-content">
-      <!-- content injected by JS -->
-    </div>
+    <div class="admin-main" id="admin-main-content"></div>
   </div>
 </div>
 
@@ -1058,20 +1027,14 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════ TOAST ═══════════════════════════════ -->
 <div id="toast-container"></div>
 
-<!-- ═══════════════════════════════ JAVASCRIPT ═══════════════════════════════ -->
 <script>
-// ─── SUPABASE CLIENT ─────────────────────────────────────────────────────────
-// Replace the two values below with your actual Supabase project URL and anon key.
-// Find them in: Supabase Dashboard → Settings → API
-const SUPABASE_URL     = 'https://yllgcfwzwjitdjmcgzjh.supabase.co';
+// ─── SUPABASE CLIENT ──────────────────────────────────────────────────────────
+const SUPABASE_URL      = 'https://yllgcfwzwjitdjmcgzjh.supabase.co';
 const SUPABASE_ANON_KEY = '5be24feb1f37999cd8a50e8a838c89fb67aa72acbd241479040beaf8efa57d3d';
-
 const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-// Helper: call an Edge Function pinned to eu-west-1 Dublin
 async function callFunction(name, options = {}) {
   const response = await fetch(`${SUPABASE_URL}/functions/v1/${name}`, {
     method: options.method || 'POST',
@@ -1084,18 +1047,17 @@ async function callFunction(name, options = {}) {
     },
     body: options.body ? JSON.stringify(options.body) : undefined,
   });
-
   const data = await response.json();
   if (!response.ok) throw new Error(data.error || `HTTP ${response.status}`);
   return data;
 }
 
-// ─── STATE ───────────────────────────────────────────────────────────────────
+// ─── STATE ────────────────────────────────────────────────────────────────────
 let currentRating = 0;
 let currentDoctorId = null;
 let selectedBookingSlot = null;
 let adminSection = 'dashboard';
-let map, markers = [];
+let markers = [];
 let editingDoctorId = null;
 let isAdminLoggedIn = false;
 let isProfLoggedIn = false;
@@ -1120,156 +1082,17 @@ const SPECIALTIES = [
   { id: 'gastroenterology', name: 'Gastroenterology', icon: '🩺' },
 ];
 
-// ─── SAMPLE DATA ──────────────────────────────────────────────────────────────
+// Sample fallback data for search/profile while edge functions are set up
 let doctors = [
-  {
-    id: 1, title: 'Dr.', firstName: 'Aoife', lastName: 'Murphy',
-    specialty: 'General Practice', subspecialties: 'Family Medicine',
-    email: '', phone: '+353 1 234 5678',
-    practiceName: 'Rathmines Medical Centre', address: '45 Rathmines Road Lower', city: 'Dublin',
-    county: 'Dublin', country: 'Ireland', postcode: 'D06 Y123',
-    lat: 53.3262, lng: -6.2685, rating: 4.8, reviewCount: 124,
-    bio: 'Dr. Murphy is a highly experienced GP with over 15 years of practice in Dublin. She specialises in preventive care, chronic disease management and women\'s health.',
-    qualifications: 'MB BCh BAO, MRCGP, MICGP',
-    languages: 'English, Irish',
-    insurance: 'VHI, Laya, Irish Life Health, Aviva',
-    feeMin: 60, feeMax: 80, experience: '15+ years',
-    consultationTypes: ['in-person', 'video', 'phone'],
-    status: 'approved', claimed: true,
-    availability: { mon: true, tue: true, wed: true, thu: true, fri: true, sat: false, sun: false },
-    startTime: '08:30', endTime: '18:00', apptDuration: 20,
-    reviews: [
-      { name: 'Mary B.', rating: 5, text: 'Absolutely wonderful doctor. Very thorough and caring.', date: '2025-01' },
-      { name: 'John K.', rating: 5, text: 'Best GP I\'ve ever had. Always takes time to listen.', date: '2025-02' },
-      { name: 'Sarah O.', rating: 4, text: 'Great care, sometimes a bit of a wait but worth it.', date: '2024-12' },
-    ]
-  },
-  {
-    id: 2, title: 'Dr.', firstName: 'Ciarán', lastName: 'Ó\'Brien',
-    specialty: 'Cardiology', subspecialties: 'Heart failure, Interventional Cardiology',
-    email: '', phone: '+353 1 345 6789',
-    practiceName: 'Blackrock Clinic Cardiology', address: 'Rock Road', city: 'Dublin',
-    county: 'Dublin', country: 'Ireland', postcode: 'A94 E4X7',
-    lat: 53.2983, lng: -6.1715, rating: 4.9, reviewCount: 89,
-    bio: 'Consultant Cardiologist with a subspecialty in heart failure and interventional procedures. Trained at St. Vincent\'s University Hospital and the Mater Private.',
-    qualifications: 'MB BCh BAO, FRCPI, FESC',
-    languages: 'English, French',
-    insurance: 'VHI, Laya, Aviva',
-    feeMin: 200, feeMax: 350, experience: '15+ years',
-    consultationTypes: ['in-person', 'video'],
-    status: 'approved', claimed: false,
-    availability: { mon: true, tue: true, wed: false, thu: true, fri: true, sat: false, sun: false },
-    startTime: '09:00', endTime: '17:00', apptDuration: 30,
-    reviews: [
-      { name: 'Patrick L.', rating: 5, text: 'Outstanding cardiologist. Saved my life, literally.', date: '2024-11' },
-      { name: 'Brigid M.', rating: 5, text: 'Extremely knowledgeable and reassuring.', date: '2025-01' },
-    ]
-  },
-  {
-    id: 3, title: 'Dr.', firstName: 'Niamh', lastName: 'Walsh',
-    specialty: 'Dermatology', subspecialties: 'Cosmetic Dermatology, Skin Cancer',
-    email: '', phone: '+353 1 456 7890',
-    practiceName: 'Dublin Skin Clinic', address: '12 Grafton Street', city: 'Dublin',
-    county: 'Dublin', country: 'Ireland', postcode: 'D02 HK67',
-    lat: 53.3408, lng: -6.2591, rating: 4.7, reviewCount: 213,
-    bio: 'Dr. Walsh is one of Ireland\'s leading dermatologists, with expertise in both medical and cosmetic dermatology. Fellow of the British Association of Dermatologists.',
-    qualifications: 'MB BCh BAO, FRCP, FAD',
-    languages: 'English',
-    insurance: 'VHI, Laya, Irish Life Health',
-    feeMin: 150, feeMax: 250, experience: '10–15 years',
-    consultationTypes: ['in-person'],
-    status: 'approved', claimed: true,
-    availability: { mon: false, tue: true, wed: true, thu: true, fri: false, sat: true, sun: false },
-    startTime: '10:00', endTime: '18:30', apptDuration: 30,
-    reviews: [
-      { name: 'Emma F.', rating: 5, text: 'Finally cleared my eczema after years of suffering!', date: '2025-02' },
-      { name: 'Liam C.', rating: 4, text: 'Very professional, knew exactly what to prescribe.', date: '2025-01' },
-    ]
-  },
-  {
-    id: 4, title: 'Dr.', firstName: 'Seán', lastName: 'Fitzgerald',
-    specialty: 'Orthopaedics', subspecialties: 'Sports Injuries, Hip & Knee Replacement',
-    email: '', phone: '+353 21 234 5678',
-    practiceName: 'Cork Orthopaedic Centre', address: '23 Washington Street', city: 'Cork',
-    county: 'Cork', country: 'Ireland', postcode: 'T12 AXD4',
-    lat: 51.8979, lng: -8.4761, rating: 4.6, reviewCount: 76,
-    bio: 'Consultant orthopaedic surgeon specialising in sports injuries and joint replacement. Fellow of the Royal College of Surgeons in Ireland.',
-    qualifications: 'MB BCh, FRCSI (Orth)',
-    languages: 'English, Irish',
-    insurance: 'VHI, Laya',
-    feeMin: 180, feeMax: 300, experience: '10–15 years',
-    consultationTypes: ['in-person'],
-    status: 'approved', claimed: false,
-    availability: { mon: true, tue: true, wed: true, thu: false, fri: true, sat: false, sun: false },
-    startTime: '09:00', endTime: '17:00', apptDuration: 30,
-    reviews: [
-      { name: 'Tony G.', rating: 5, text: 'Perfect knee replacement. Back to football 6 months later.', date: '2024-10' },
-    ]
-  },
-  {
-    id: 5, title: 'Dr.', firstName: 'Rachel', lastName: 'Byrne',
-    specialty: 'Paediatrics', subspecialties: 'Neonatal Care, Childhood Asthma',
-    email: '', phone: '+353 1 567 8901',
-    practiceName: 'Stillorgan Paediatric Clinic', address: '8 Lower Kilmacud Road', city: 'Dublin',
-    county: 'Dublin', country: 'Ireland', postcode: 'A94 T9Y2',
-    lat: 53.2883, lng: -6.2129, rating: 4.9, reviewCount: 178,
-    bio: 'Highly regarded paediatrician with special interests in neonatal care and childhood asthma. Trained at Children\'s Health Ireland at Crumlin.',
-    qualifications: 'MB BCh, MRCPCH, DCH',
-    languages: 'English',
-    insurance: 'VHI, Laya, Irish Life Health, Aviva',
-    feeMin: 80, feeMax: 120, experience: '10–15 years',
-    consultationTypes: ['in-person', 'video', 'phone'],
-    status: 'approved', claimed: true,
-    availability: { mon: true, tue: true, wed: true, thu: true, fri: true, sat: true, sun: false },
-    startTime: '08:00', endTime: '16:00', apptDuration: 20,
-    reviews: [
-      { name: 'Claire R.', rating: 5, text: 'Such a caring doctor. My kids love her!', date: '2025-02' },
-      { name: 'Dave M.', rating: 5, text: 'Brilliant with anxious children. Very patient.', date: '2025-01' },
-    ]
-  },
-  {
-    id: 6, title: 'Dr.', firstName: 'Patrick', lastName: 'Gallagher',
-    specialty: 'Psychiatry', subspecialties: 'Anxiety Disorders, CBT',
-    email: '', phone: '+353 91 234 567',
-    practiceName: 'Galway Mind Centre', address: '15 Eyre Square', city: 'Galway',
-    county: 'Galway', country: 'Ireland', postcode: 'H91 DH29',
-    lat: 53.2742, lng: -9.0490, rating: 4.7, reviewCount: 55,
-    bio: 'Consultant Psychiatrist offering evidence-based care for adults. Special interest in anxiety disorders, depression and CBT.',
-    qualifications: 'MB BCh, MRCPsych, MD',
-    languages: 'English, Irish',
-    insurance: 'VHI, Laya',
-    feeMin: 220, feeMax: 300, experience: '10–15 years',
-    consultationTypes: ['in-person', 'video'],
-    status: 'approved', claimed: false,
-    availability: { mon: true, tue: false, wed: true, thu: false, fri: true, sat: false, sun: false },
-    startTime: '10:00', endTime: '17:00', apptDuration: 60,
-    reviews: [
-      { name: 'Anon', rating: 5, text: 'Life-changing. Incredibly compassionate.', date: '2024-12' },
-    ]
-  },
-  {
-    id: 7, title: 'Dr.', firstName: 'Sinéad', lastName: 'Kelly',
-    specialty: 'General Practice', subspecialties: "Women's Health, Travel Medicine",
-    email: '', phone: '+353 1 678 9012',
-    practiceName: 'Ballsbridge Medical Practice', address: '34 Pembroke Road', city: 'Dublin',
-    county: 'Dublin', country: 'Ireland', postcode: 'D04 EY20',
-    lat: 53.3284, lng: -6.2326, rating: 4.5, reviewCount: 201,
-    bio: "Experienced GP with special interests in women's health, travel medicine and minor surgery. Fully online booking available.",
-    qualifications: 'MB BCh BAO, MICGP, MRCGP',
-    languages: 'English, Spanish',
-    insurance: 'VHI, Laya, Irish Life Health',
-    feeMin: 55, feeMax: 75, experience: '5–10 years',
-    consultationTypes: ['in-person', 'video', 'phone'],
-    status: 'approved', claimed: true,
-    availability: { mon: true, tue: true, wed: true, thu: true, fri: true, sat: false, sun: false },
-    startTime: '08:00', endTime: '18:00', apptDuration: 15,
-    reviews: [
-      { name: 'Karen T.', rating: 5, text: 'Fantastic GP, always gets to the root of the problem.', date: '2025-02' },
-    ]
-  }
+  { id: 1, title: 'Dr.', firstName: 'Aoife', lastName: 'Murphy', specialty: 'General Practice', subspecialties: 'Family Medicine', email: '', phone: '+353 1 234 5678', practiceName: 'Rathmines Medical Centre', address: '45 Rathmines Road Lower', city: 'Dublin', county: 'Dublin', country: 'Ireland', postcode: 'D06 Y123', lat: 53.3262, lng: -6.2685, rating: 4.8, reviewCount: 124, bio: 'Dr. Murphy is a highly experienced GP with over 15 years of practice in Dublin. She specialises in preventive care, chronic disease management and women\'s health.', qualifications: 'MB BCh BAO, MRCGP, MICGP', languages: 'English, Irish', insurance: 'VHI, Laya, Irish Life Health, Aviva', feeMin: 60, feeMax: 80, experience: '15+ years', consultationTypes: ['in-person', 'video', 'phone'], status: 'approved', claimed: true, availability: { mon: true, tue: true, wed: true, thu: true, fri: true, sat: false, sun: false }, startTime: '08:30', endTime: '18:00', apptDuration: 20, reviews: [{ name: 'Mary B.', rating: 5, text: 'Absolutely wonderful doctor. Very thorough and caring.', date: '2025-01' }, { name: 'John K.', rating: 5, text: 'Best GP I\'ve ever had. Always takes time to listen.', date: '2025-02' }] },
+  { id: 2, title: 'Dr.', firstName: 'Ciarán', lastName: 'Ó\'Brien', specialty: 'Cardiology', subspecialties: 'Heart failure, Interventional Cardiology', email: '', phone: '+353 1 345 6789', practiceName: 'Blackrock Clinic Cardiology', address: 'Rock Road', city: 'Dublin', county: 'Dublin', country: 'Ireland', postcode: 'A94 E4X7', lat: 53.2983, lng: -6.1715, rating: 4.9, reviewCount: 89, bio: 'Consultant Cardiologist with a subspecialty in heart failure and interventional procedures.', qualifications: 'MB BCh BAO, FRCPI, FESC', languages: 'English, French', insurance: 'VHI, Laya, Aviva', feeMin: 200, feeMax: 350, experience: '15+ years', consultationTypes: ['in-person', 'video'], status: 'approved', claimed: false, availability: { mon: true, tue: true, wed: false, thu: true, fri: true, sat: false, sun: false }, startTime: '09:00', endTime: '17:00', apptDuration: 30, reviews: [{ name: 'Patrick L.', rating: 5, text: 'Outstanding cardiologist. Saved my life, literally.', date: '2024-11' }] },
+  { id: 3, title: 'Dr.', firstName: 'Niamh', lastName: 'Walsh', specialty: 'Dermatology', subspecialties: 'Cosmetic Dermatology, Skin Cancer', email: '', phone: '+353 1 456 7890', practiceName: 'Dublin Skin Clinic', address: '12 Grafton Street', city: 'Dublin', county: 'Dublin', country: 'Ireland', postcode: 'D02 HK67', lat: 53.3408, lng: -6.2591, rating: 4.7, reviewCount: 213, bio: 'Dr. Walsh is one of Ireland\'s leading dermatologists.', qualifications: 'MB BCh BAO, FRCP, FAD', languages: 'English', insurance: 'VHI, Laya, Irish Life Health', feeMin: 150, feeMax: 250, experience: '10–15 years', consultationTypes: ['in-person'], status: 'approved', claimed: true, availability: { mon: false, tue: true, wed: true, thu: true, fri: false, sat: true, sun: false }, startTime: '10:00', endTime: '18:30', apptDuration: 30, reviews: [{ name: 'Emma F.', rating: 5, text: 'Finally cleared my eczema after years of suffering!', date: '2025-02' }] },
+  { id: 4, title: 'Dr.', firstName: 'Seán', lastName: 'Fitzgerald', specialty: 'Orthopaedics', subspecialties: 'Sports Injuries, Hip & Knee Replacement', email: '', phone: '+353 21 234 5678', practiceName: 'Cork Orthopaedic Centre', address: '23 Washington Street', city: 'Cork', county: 'Cork', country: 'Ireland', postcode: 'T12 AXD4', lat: 51.8979, lng: -8.4761, rating: 4.6, reviewCount: 76, bio: 'Consultant orthopaedic surgeon specialising in sports injuries and joint replacement.', qualifications: 'MB BCh, FRCSI (Orth)', languages: 'English, Irish', insurance: 'VHI, Laya', feeMin: 180, feeMax: 300, experience: '10–15 years', consultationTypes: ['in-person'], status: 'approved', claimed: false, availability: { mon: true, tue: true, wed: true, thu: false, fri: true, sat: false, sun: false }, startTime: '09:00', endTime: '17:00', apptDuration: 30, reviews: [{ name: 'Tony G.', rating: 5, text: 'Perfect knee replacement. Back to football 6 months later.', date: '2024-10' }] },
+  { id: 5, title: 'Dr.', firstName: 'Rachel', lastName: 'Byrne', specialty: 'Paediatrics', subspecialties: 'Neonatal Care, Childhood Asthma', email: '', phone: '+353 1 567 8901', practiceName: 'Stillorgan Paediatric Clinic', address: '8 Lower Kilmacud Road', city: 'Dublin', county: 'Dublin', country: 'Ireland', postcode: 'A94 T9Y2', lat: 53.2883, lng: -6.2129, rating: 4.9, reviewCount: 178, bio: 'Highly regarded paediatrician with special interests in neonatal care and childhood asthma.', qualifications: 'MB BCh, MRCPCH, DCH', languages: 'English', insurance: 'VHI, Laya, Irish Life Health, Aviva', feeMin: 80, feeMax: 120, experience: '10–15 years', consultationTypes: ['in-person', 'video', 'phone'], status: 'approved', claimed: true, availability: { mon: true, tue: true, wed: true, thu: true, fri: true, sat: true, sun: false }, startTime: '08:00', endTime: '16:00', apptDuration: 20, reviews: [{ name: 'Claire R.', rating: 5, text: 'Such a caring doctor. My kids love her!', date: '2025-02' }] },
+  { id: 6, title: 'Dr.', firstName: 'Patrick', lastName: 'Gallagher', specialty: 'Psychiatry', subspecialties: 'Anxiety Disorders, CBT', email: '', phone: '+353 91 234 567', practiceName: 'Galway Mind Centre', address: '15 Eyre Square', city: 'Galway', county: 'Galway', country: 'Ireland', postcode: 'H91 DH29', lat: 53.2742, lng: -9.0490, rating: 4.7, reviewCount: 55, bio: 'Consultant Psychiatrist offering evidence-based care for adults.', qualifications: 'MB BCh, MRCPsych, MD', languages: 'English, Irish', insurance: 'VHI, Laya', feeMin: 220, feeMax: 300, experience: '10–15 years', consultationTypes: ['in-person', 'video'], status: 'approved', claimed: false, availability: { mon: true, tue: false, wed: true, thu: false, fri: true, sat: false, sun: false }, startTime: '10:00', endTime: '17:00', apptDuration: 60, reviews: [{ name: 'Anon', rating: 5, text: 'Life-changing. Incredibly compassionate.', date: '2024-12' }] },
+  { id: 7, title: 'Dr.', firstName: 'Sinéad', lastName: 'Kelly', specialty: 'General Practice', subspecialties: "Women's Health, Travel Medicine", email: '', phone: '+353 1 678 9012', practiceName: 'Ballsbridge Medical Practice', address: '34 Pembroke Road', city: 'Dublin', county: 'Dublin', country: 'Ireland', postcode: 'D04 EY20', lat: 53.3284, lng: -6.2326, rating: 4.5, reviewCount: 201, bio: "Experienced GP with special interests in women's health, travel medicine and minor surgery.", qualifications: 'MB BCh BAO, MICGP, MRCGP', languages: 'English, Spanish', insurance: 'VHI, Laya, Irish Life Health', feeMin: 55, feeMax: 75, experience: '5–10 years', consultationTypes: ['in-person', 'video', 'phone'], status: 'approved', claimed: true, availability: { mon: true, tue: true, wed: true, thu: true, fri: true, sat: false, sun: false }, startTime: '08:00', endTime: '18:00', apptDuration: 15, reviews: [{ name: 'Karen T.', rating: 5, text: 'Fantastic GP, always gets to the root of the problem.', date: '2025-02' }] }
 ];
 
-let pendingRegistrations = [];
 let claimRequests = [];
 
 // ─── PAGE NAVIGATION ──────────────────────────────────────────────────────────
@@ -1278,12 +1101,10 @@ function showPage(id) {
   const pg = document.getElementById(id);
   if (pg) pg.classList.add('active');
   window.scrollTo(0, 0);
-
   document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
   const map_nav = { home: 0, search: 1, register: 2 };
   const navBtns = document.querySelectorAll('#main-nav-links .nav-link');
   if (map_nav[id] !== undefined) navBtns[map_nav[id]]?.classList.add('active');
-
   if (id === 'search') initSearchPage();
   if (id === 'admin') renderAdminSection();
 }
@@ -1293,22 +1114,14 @@ function initHome() {
   const grid = document.getElementById('specialty-grid');
   grid.innerHTML = SPECIALTIES.map(s => `
     <div class="specialty-chip" onclick="quickSearch('${s.name}')">
-      <span class="chip-icon">${s.icon}</span>
-      ${s.name}
-    </div>
-  `).join('');
+      <span class="chip-icon">${s.icon}</span>${s.name}
+    </div>`).join('');
 
   const regSelect = document.getElementById('reg-specialty');
-  if (regSelect) {
-    regSelect.innerHTML = '<option value="">Select specialty…</option>' +
-      SPECIALTIES.map(s => `<option value="${s.name}">${s.name}</option>`).join('');
-  }
+  if (regSelect) regSelect.innerHTML = '<option value="">Select specialty…</option>' + SPECIALTIES.map(s => `<option value="${s.name}">${s.name}</option>`).join('');
 
   const searchSpecSelect = document.getElementById('search-specialty');
-  if (searchSpecSelect) {
-    searchSpecSelect.innerHTML = '<option value="">All Specialties</option>' +
-      SPECIALTIES.map(s => `<option value="${s.name}">${s.name}</option>`).join('');
-  }
+  if (searchSpecSelect) searchSpecSelect.innerHTML = '<option value="">All Specialties</option>' + SPECIALTIES.map(s => `<option value="${s.name}">${s.name}</option>`).join('');
 }
 
 function quickSearch(specialty) {
@@ -1334,59 +1147,30 @@ async function filterResults() {
   const q    = document.getElementById('search-q')?.value   || '';
   const loc  = document.getElementById('search-loc')?.value  || '';
   const spec = document.getElementById('search-specialty')?.value || '';
-
   const container = document.getElementById('results-container');
   const count     = document.getElementById('results-count');
 
-  container.innerHTML = `<div style="text-align:center;padding:40px;color:var(--text-muted)">
-    <div style="font-size:24px;margin-bottom:12px">⏳</div>
-    <div style="font-size:15px">Searching...</div>
-  </div>`;
+  container.innerHTML = `<div style="text-align:center;padding:40px;color:var(--text-muted)"><div style="font-size:24px;margin-bottom:12px">⏳</div><div style="font-size:15px">Searching...</div></div>`;
   count.textContent = '';
 
   try {
-    const results = await callFunction('search-professionals', {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ q, city: loc, specialty: spec }),
-    });
-
+    const results = await callFunction('search-professionals', { method: 'GET', body: JSON.stringify({ q, city: loc, specialty: spec }) });
     const list = Array.isArray(results) ? results : [];
     count.textContent = `${list.length} professional${list.length !== 1 ? 's' : ''} found`;
-
-    if (list.length === 0) {
-      container.innerHTML = `<div style="text-align:center;padding:40px;color:var(--text-muted)">
-        <div style="font-size:40px;margin-bottom:12px">🔍</div>
-        <div style="font-size:16px;font-weight:500;margin-bottom:8px">No results found</div>
-        <div style="font-size:14px">Try adjusting your search criteria</div>
-      </div>`;
-    } else {
-      container.innerHTML = list.map(d => renderDoctorCard(d)).join('');
-    }
+    container.innerHTML = list.length ? list.map(d => renderDoctorCard(d)).join('') : `<div style="text-align:center;padding:40px;color:var(--text-muted)"><div style="font-size:40px;margin-bottom:12px">🔍</div><div style="font-size:16px;font-weight:500;margin-bottom:8px">No results found</div><div style="font-size:14px">Try adjusting your search criteria</div></div>`;
     updateMapMarkers(list);
-
   } catch (err) {
     console.error('Search error:', err);
-    // Fall back to searching the local sample data so the site still works
-    // while Edge Functions are being set up
-    const q2  = q.toLowerCase();
-    const loc2 = loc.toLowerCase();
+    const q2 = q.toLowerCase(), loc2 = loc.toLowerCase();
     const filtered = doctors.filter(d => {
       if (d.status !== 'approved') return false;
       const name = `${d.firstName} ${d.lastName}`.toLowerCase();
-      const matchQ   = !q2   || name.includes(q2)   || d.specialty.toLowerCase().includes(q2) || (d.subspecialties||'').toLowerCase().includes(q2);
-      const matchLoc = !loc2 || d.city.toLowerCase().includes(loc2) || (d.county||'').toLowerCase().includes(loc2);
-      const matchSp  = !spec || d.specialty === spec;
-      return matchQ && matchLoc && matchSp;
+      return (!q2 || name.includes(q2) || d.specialty.toLowerCase().includes(q2) || (d.subspecialties||'').toLowerCase().includes(q2))
+          && (!loc2 || d.city.toLowerCase().includes(loc2) || (d.county||'').toLowerCase().includes(loc2))
+          && (!spec || d.specialty === spec);
     });
     count.textContent = `${filtered.length} professional${filtered.length !== 1 ? 's' : ''} found`;
-    container.innerHTML = filtered.length
-      ? filtered.map(d => renderDoctorCard(d)).join('')
-      : `<div style="text-align:center;padding:40px;color:var(--text-muted)">
-           <div style="font-size:40px;margin-bottom:12px">🔍</div>
-           <div style="font-size:16px;font-weight:500;margin-bottom:8px">No results found</div>
-           <div style="font-size:14px">Try adjusting your search criteria</div>
-         </div>`;
+    container.innerHTML = filtered.length ? filtered.map(d => renderDoctorCard(d)).join('') : `<div style="text-align:center;padding:40px;color:var(--text-muted)"><div style="font-size:40px;margin-bottom:12px">🔍</div><div style="font-size:16px;font-weight:500;margin-bottom:8px">No results found</div></div>`;
     updateMapMarkers(filtered);
   }
 }
@@ -1394,12 +1178,8 @@ async function filterResults() {
 function renderDoctorCard(d) {
   const initials = d.firstName[0] + d.lastName[0];
   const stars = '★'.repeat(Math.round(d.rating)) + '☆'.repeat(5 - Math.round(d.rating));
-  const days = Object.entries(d.availability || {}).filter(([k,v]) => v).map(([k]) => k.charAt(0).toUpperCase() + k.slice(1));
   const slots = generateSlots(d, new Date(), 3);
-  const ctIcons = (d.consultationTypes||['in-person']).map(t =>
-    ({  'in-person': '🏥', video: '💻', phone: '📞', home: '🏠' }[t] || '🏥')
-  ).join(' ');
-
+  const ctIcons = (d.consultationTypes||['in-person']).map(t => ({'in-person':'🏥',video:'💻',phone:'📞',home:'🏠'}[t]||'🏥')).join(' ');
   return `
     <div class="doctor-card" id="dc-${d.id}" onclick="showDoctorProfile(${d.id})">
       <div class="doctor-card-header">
@@ -1409,10 +1189,7 @@ function renderDoctorCard(d) {
             <div>
               <div class="doctor-name">${d.title} ${d.firstName} ${d.lastName}</div>
               <div class="doctor-specialty">${d.specialty}${d.subspecialties ? ' · ' + d.subspecialties.split(',')[0].trim() : ''}</div>
-              <div class="doctor-address">
-                <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                ${d.practiceName}, ${d.city}
-              </div>
+              <div class="doctor-address"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>${d.practiceName}, ${d.city}</div>
             </div>
             <div style="text-align:right">
               <div class="doctor-rating"><span>${d.rating}</span> <span style="color:var(--warning)">${stars.substring(0,1)}</span></div>
@@ -1422,7 +1199,7 @@ function renderDoctorCard(d) {
           <div style="margin-top:6px;display:flex;gap:6px;flex-wrap:wrap">
             <span class="badge badge-primary">${d.specialty}</span>
             ${d.feeMin ? `<span class="badge badge-gray">€${d.feeMin}–€${d.feeMax}</span>` : ''}
-            <span class="badge badge-gray" title="Consultation types">${ctIcons}</span>
+            <span class="badge badge-gray">${ctIcons}</span>
           </div>
         </div>
       </div>
@@ -1443,7 +1220,6 @@ function generateSlots(doctor, fromDate, count) {
   const dur = doctor.apptDuration || 30;
   const startH = parseInt((doctor.startTime||'09:00').split(':')[0]);
   const startM = parseInt((doctor.startTime||'09:00').split(':')[1]);
-
   let d = new Date(fromDate);
   for (let attempt = 0; attempt < 14 && slots.length < count; attempt++) {
     const dayKey = days[d.getDay()];
@@ -1468,12 +1244,8 @@ let mapInstance = null;
 function initMap() {
   const mapEl = document.getElementById('map');
   if (!mapEl || mapInstance) return;
-
   mapInstance = L.map('map').setView([53.3498, -6.2603], 10);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
-  }).addTo(mapInstance);
-
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }).addTo(mapInstance);
   updateMapMarkers(doctors.filter(d => d.status === 'approved'));
 }
 
@@ -1481,34 +1253,16 @@ function updateMapMarkers(docs) {
   if (!mapInstance) return;
   markers.forEach(m => mapInstance.removeLayer(m));
   markers = [];
-
   docs.forEach(d => {
     if (!d.lat || !d.lng) return;
-    const icon = L.divIcon({
-      html: `<div style="background:var(--primary,#00B8D4);color:#fff;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.2);cursor:pointer">${d.firstName[0]}${d.lastName[0]}</div>`,
-      className: '', iconSize: [36, 36], iconAnchor: [18, 18]
-    });
-    const m = L.marker([d.lat, d.lng], { icon })
-      .addTo(mapInstance)
-      .bindPopup(`
-        <div style="min-width:200px">
-          <strong style="font-size:14px">${d.title} ${d.firstName} ${d.lastName}</strong><br>
-          <span style="color:#5A6070;font-size:12px">${d.specialty}</span><br>
-          <span style="color:#5A6070;font-size:12px">${d.practiceName}</span><br>
-          <span style="color:#5A6070;font-size:12px">★ ${d.rating} (${d.reviewCount})</span><br>
-          <button onclick="showDoctorProfile(${d.id})" style="margin-top:8px;background:#00B8D4;color:#fff;border:none;padding:6px 12px;border-radius:6px;font-size:12px;cursor:pointer;width:100%">View Profile</button>
-        </div>
-      `);
-    m.on('click', () => {
-      document.querySelectorAll('.doctor-card').forEach(c => c.classList.remove('active'));
-      document.getElementById(`dc-${d.id}`)?.classList.add('active');
-    });
+    const icon = L.divIcon({ html: `<div style="background:#00B8D4;color:#fff;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.2)">${d.firstName[0]}${d.lastName[0]}</div>`, className: '', iconSize: [36,36], iconAnchor: [18,18] });
+    const m = L.marker([d.lat, d.lng], { icon }).addTo(mapInstance).bindPopup(`<div style="min-width:200px"><strong style="font-size:14px">${d.title} ${d.firstName} ${d.lastName}</strong><br><span style="color:#5A6070;font-size:12px">${d.specialty}</span><br><span style="color:#5A6070;font-size:12px">${d.practiceName}</span><br><button onclick="showDoctorProfile(${d.id})" style="margin-top:8px;background:#00B8D4;color:#fff;border:none;padding:6px 12px;border-radius:6px;font-size:12px;cursor:pointer;width:100%">View Profile</button></div>`);
+    m.on('click', () => { document.querySelectorAll('.doctor-card').forEach(c => c.classList.remove('active')); document.getElementById(`dc-${d.id}`)?.classList.add('active'); });
     markers.push(m);
   });
-
   if (docs.length > 0 && docs[0].lat) {
-    const bounds = L.latLngBounds(docs.map(d => [d.lat || 53.3, d.lng || -6.2]));
-    mapInstance.fitBounds(bounds, { padding: [40, 40] });
+    const bounds = L.latLngBounds(docs.map(d => [d.lat||53.3, d.lng||-6.2]));
+    mapInstance.fitBounds(bounds, { padding: [40,40] });
   }
 }
 
@@ -1516,70 +1270,31 @@ function updateMapMarkers(docs) {
 async function showDoctorProfile(id) {
   currentDoctorId = id;
   showPage('profile-page');
-  document.getElementById('profile-content').innerHTML =
-    `<div style="text-align:center;padding:60px;color:var(--text-muted)">
-       <div style="font-size:24px;margin-bottom:12px">⏳</div>
-       <div>Loading profile...</div>
-     </div>`;
-
+  document.getElementById('profile-content').innerHTML = `<div style="text-align:center;padding:60px;color:var(--text-muted)"><div style="font-size:24px;margin-bottom:12px">⏳</div><div>Loading profile...</div></div>`;
   try {
-    const data = await callFunction('get-professional', {
-      method: 'GET',
-      body: JSON.stringify({ id: String(id) }),
-    });
+    const data = await callFunction('get-professional', { method: 'GET', body: JSON.stringify({ id: String(id) }) });
     if (data && data.professional) {
-      // Normalise field names so renderProfile works with both
-      // camelCase (sample data) and snake_case (Supabase data)
       const p = data.professional;
-      const d = {
-        id:                p.id,
-        title:             p.title || '',
-        firstName:         p.first_name  || p.firstName  || '',
-        lastName:          p.last_name   || p.lastName   || '',
-        specialty:         p.specialty   || '',
-        subspecialties:    p.subspecialties || '',
-        bio:               p.bio         || '',
-        qualifications:    p.qualifications || '',
-        languages:         p.languages   || 'English',
-        practiceName:      p.practice_name || p.practiceName || '',
-        address:           p.address     || '',
-        city:              p.city        || '',
-        county:            p.county      || '',
-        postcode:          p.postcode    || '',
-        phone:             p.phone       || '',
-        website:           p.website     || '',
-        lat:               p.lat,
-        lng:               p.lng,
-        feeMin:            p.fee_min     || p.feeMin     || 0,
-        feeMax:            p.fee_max     || p.feeMax     || 0,
-        insurance:         p.insurance   || '',
-        consultationTypes: p.consultation_types || p.consultationTypes || ['in-person'],
-        status:            p.status      || 'approved',
-        claimed:           p.claimed     || false,
-        rating:            parseFloat(p.rating) || 0,
-        reviewCount:       p.review_count || p.reviewCount || 0,
-        reviews:           data.reviews  || [],
-        availability:      data.availability || { mon:true, tue:true, wed:true, thu:true, fri:true, sat:false, sun:false },
-        startTime:         (data.availability && data.availability.start_time) || '09:00',
-        endTime:           (data.availability && data.availability.end_time)   || '17:30',
-        apptDuration:      (data.availability && data.availability.appt_duration_mins) || 30,
-      };
-      renderProfile(d);
-    } else {
-      throw new Error('Profile not found');
-    }
+      renderProfile({
+        id: p.id, title: p.title||'', firstName: p.first_name||p.firstName||'', lastName: p.last_name||p.lastName||'',
+        specialty: p.specialty||'', subspecialties: p.subspecialties||'', bio: p.bio||'', qualifications: p.qualifications||'',
+        languages: p.languages||'English', practiceName: p.practice_name||p.practiceName||'', address: p.address||'',
+        city: p.city||'', county: p.county||'', postcode: p.postcode||'', phone: p.phone||'', website: p.website||'',
+        lat: p.lat, lng: p.lng, feeMin: p.fee_min||p.feeMin||0, feeMax: p.fee_max||p.feeMax||0,
+        insurance: p.insurance||'', consultationTypes: p.consultation_types||p.consultationTypes||['in-person'],
+        status: p.status||'approved', claimed: p.claimed||false, rating: parseFloat(p.rating)||0,
+        reviewCount: p.review_count||p.reviewCount||0, reviews: data.reviews||[],
+        availability: data.availability||{mon:true,tue:true,wed:true,thu:true,fri:true,sat:false,sun:false},
+        startTime: (data.availability&&data.availability.start_time)||'09:00',
+        endTime: (data.availability&&data.availability.end_time)||'17:30',
+        apptDuration: (data.availability&&data.availability.appt_duration_mins)||30,
+      });
+    } else throw new Error('Profile not found');
   } catch (err) {
     console.error('Profile load error:', err);
-    // Fall back to local sample data while Edge Functions are being set up
     const d = doctors.find(x => String(x.id) === String(id));
-    if (d) {
-      renderProfile(d);
-    } else {
-      document.getElementById('profile-content').innerHTML =
-        `<div style="text-align:center;padding:60px;color:var(--danger)">
-           Profile not found. Please go back and try again.
-         </div>`;
-    }
+    if (d) renderProfile(d);
+    else document.getElementById('profile-content').innerHTML = `<div style="text-align:center;padding:60px;color:var(--danger)">Profile not found. Please go back and try again.</div>`;
   }
 }
 
@@ -1589,20 +1304,10 @@ function renderProfile(d) {
   const availDays = Object.entries(d.availability||{}).filter(([k,v])=>v).map(([k])=>dayLabels[k]).join(', ');
   const ctLabels = { 'in-person':'In-person', video:'Video', phone:'Phone', home:'Home visit' };
   const isOwner = isProfLoggedIn && loggedInProfId === d.id;
-  const isAdmin = isAdminLoggedIn;
-
   const slots7 = generateWeekSlots(d);
 
   document.getElementById('profile-content').innerHTML = `
-    ${!d.claimed ? `
-    <div class="claim-banner">
-      <div class="claim-banner-text">
-        <strong>Are you ${d.title} ${d.firstName} ${d.lastName}?</strong>
-        This profile has not yet been claimed. Take control to manage your information and bookings.
-      </div>
-      <button class="btn btn-warning btn-sm" style="background:#F59E0B;color:#fff;border-color:#F59E0B;white-space:nowrap" onclick="openClaimModal(${d.id})">Claim this profile</button>
-    </div>` : ''}
-
+    ${!d.claimed ? `<div class="claim-banner"><div class="claim-banner-text"><strong>Are you ${d.title} ${d.firstName} ${d.lastName}?</strong> This profile has not yet been claimed.</div><button class="btn btn-sm" style="background:#F59E0B;color:#fff;border-color:#F59E0B;white-space:nowrap" onclick="openClaimModal(${d.id})">Claim this profile</button></div>` : ''}
     <div class="profile-header">
       <div class="profile-avatar-lg">${initials}</div>
       <div style="flex:1">
@@ -1611,134 +1316,60 @@ function renderProfile(d) {
             <div class="profile-name">${d.title} ${d.firstName} ${d.lastName}</div>
             <div class="profile-title">${d.specialty}${d.subspecialties ? ' · ' + d.subspecialties : ''}</div>
             <div class="profile-meta">
-              <div class="profile-meta-item">
-                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                ${d.practiceName}, ${d.address}, ${d.city}
-              </div>
-              <div class="profile-meta-item">
-                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                ${d.phone}
-              </div>
-              <div class="profile-meta-item">
-                <span style="color:var(--warning);font-size:16px">★</span>
-                <strong>${d.rating}</strong> <span style="color:var(--text-muted)">(${d.reviewCount} reviews)</span>
-              </div>
+              <div class="profile-meta-item"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>${d.practiceName}, ${d.address}, ${d.city}</div>
+              <div class="profile-meta-item"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>${d.phone}</div>
+              <div class="profile-meta-item"><span style="color:var(--warning);font-size:16px">★</span><strong>${d.rating}</strong> <span style="color:var(--text-muted)">(${d.reviewCount} reviews)</span></div>
             </div>
           </div>
           <div style="display:flex;gap:8px;flex-wrap:wrap">
-            ${isOwner || isAdmin ? `<button class="btn btn-secondary btn-sm" onclick="openEditModal(${d.id})">✏️ Edit Profile</button>` : ''}
+            ${isOwner || isAdminLoggedIn ? `<button class="btn btn-secondary btn-sm" onclick="openEditModal('${d.id}')">✏️ Edit Profile</button>` : ''}
             <button class="btn btn-accent" onclick="openBooking(${d.id}, null)">Book Appointment</button>
           </div>
         </div>
       </div>
     </div>
-
     <div class="profile-tabs">
       <button class="profile-tab active" onclick="switchTab(this,'tab-overview')">Overview</button>
       <button class="profile-tab" onclick="switchTab(this,'tab-schedule')">Availability</button>
       <button class="profile-tab" onclick="switchTab(this,'tab-reviews')">Reviews (${d.reviewCount})</button>
       <button class="profile-tab" onclick="switchTab(this,'tab-info')">Practice Info</button>
     </div>
-
     <div id="tab-overview" class="tab-content active">
       <div style="display:grid;grid-template-columns:2fr 1fr;gap:24px">
         <div>
-          <div class="card" style="margin-bottom:16px">
-            <h3 style="font-weight:600;margin-bottom:12px">About</h3>
-            <p style="color:var(--text-secondary);line-height:1.7">${d.bio}</p>
-          </div>
-          <div class="card" style="margin-bottom:16px">
-            <h3 style="font-weight:600;margin-bottom:12px">Qualifications</h3>
-            <div style="display:flex;flex-wrap:wrap;gap:8px">
-              ${(d.qualifications||'').split(',').map(q=>`<span class="badge badge-primary">${q.trim()}</span>`).join('')}
-            </div>
-          </div>
-          <div class="card">
-            <h3 style="font-weight:600;margin-bottom:12px">Languages</h3>
-            <div style="display:flex;flex-wrap:wrap;gap:8px">
-              ${(d.languages||'English').split(',').map(l=>`<span class="lang-tag">🌐 ${l.trim()}</span>`).join('')}
-            </div>
-          </div>
+          <div class="card" style="margin-bottom:16px"><h3 style="font-weight:600;margin-bottom:12px">About</h3><p style="color:var(--text-secondary);line-height:1.7">${d.bio}</p></div>
+          <div class="card" style="margin-bottom:16px"><h3 style="font-weight:600;margin-bottom:12px">Qualifications</h3><div style="display:flex;flex-wrap:wrap;gap:8px">${(d.qualifications||'').split(',').map(q=>`<span class="badge badge-primary">${q.trim()}</span>`).join('')}</div></div>
+          <div class="card"><h3 style="font-weight:600;margin-bottom:12px">Languages</h3><div style="display:flex;flex-wrap:wrap;gap:8px">${(d.languages||'English').split(',').map(l=>`<span class="lang-tag">🌐 ${l.trim()}</span>`).join('')}</div></div>
         </div>
         <div>
-          <div class="card" style="margin-bottom:16px;background:var(--primary-light);border-color:rgba(0,102,204,0.15)">
-            <div style="font-size:13px;color:var(--text-secondary);margin-bottom:4px">Consultation Fee</div>
-            <div style="font-size:24px;font-weight:700;color:var(--teal-dark)">€${d.feeMin || '–'}${d.feeMax && d.feeMax !== d.feeMin ? `–€${d.feeMax}` : ''}</div>
-            <div style="font-size:12px;color:var(--text-muted);margin-top:4px">per consultation</div>
-          </div>
-          <div class="card" style="margin-bottom:16px">
-            <h4 style="font-weight:600;margin-bottom:10px;font-size:14px">Consultation Types</h4>
-            ${(d.consultationTypes||['in-person']).map(t=>`<div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);font-size:13px"><span>${{'in-person':'🏥',video:'💻',phone:'📞',home:'🏠'}[t]||'🏥'}</span>${ctLabels[t]||t}</div>`).join('')}
-          </div>
-          <div class="card" style="margin-bottom:16px">
-            <h4 style="font-weight:600;margin-bottom:10px;font-size:14px">Insurance</h4>
-            <div style="font-size:13px;color:var(--text-secondary)">${d.insurance || 'Please enquire'}</div>
-          </div>
-          <div class="card">
-            <h4 style="font-weight:600;margin-bottom:10px;font-size:14px">Working Days</h4>
-            <div style="font-size:13px;color:var(--text-secondary)">${availDays || 'Mon–Fri'}</div>
-            <div style="font-size:12px;color:var(--text-muted);margin-top:4px">${d.startTime||'09:00'} – ${d.endTime||'17:00'}</div>
-          </div>
+          <div class="card" style="margin-bottom:16px;background:var(--primary-light)"><div style="font-size:13px;color:var(--text-secondary);margin-bottom:4px">Consultation Fee</div><div style="font-size:24px;font-weight:700;color:var(--teal-dark)">€${d.feeMin||'–'}${d.feeMax&&d.feeMax!==d.feeMin?`–€${d.feeMax}`:''}</div><div style="font-size:12px;color:var(--text-muted);margin-top:4px">per consultation</div></div>
+          <div class="card" style="margin-bottom:16px"><h4 style="font-weight:600;margin-bottom:10px;font-size:14px">Consultation Types</h4>${(d.consultationTypes||['in-person']).map(t=>`<div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);font-size:13px"><span>${{'in-person':'🏥',video:'💻',phone:'📞',home:'🏠'}[t]||'🏥'}</span>${ctLabels[t]||t}</div>`).join('')}</div>
+          <div class="card" style="margin-bottom:16px"><h4 style="font-weight:600;margin-bottom:10px;font-size:14px">Insurance</h4><div style="font-size:13px;color:var(--text-secondary)">${d.insurance||'Please enquire'}</div></div>
+          <div class="card"><h4 style="font-weight:600;margin-bottom:10px;font-size:14px">Working Days</h4><div style="font-size:13px;color:var(--text-secondary)">${availDays||'Mon–Fri'}</div><div style="font-size:12px;color:var(--text-muted);margin-top:4px">${d.startTime||'09:00'} – ${d.endTime||'17:00'}</div></div>
         </div>
       </div>
     </div>
-
     <div id="tab-schedule" class="tab-content">
       <div class="card">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
-          <h3 style="font-weight:600">Available Appointments</h3>
-          <button class="btn btn-accent btn-sm" onclick="openBooking(${d.id},null)">Book Now</button>
-        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px"><h3 style="font-weight:600">Available Appointments</h3><button class="btn btn-accent btn-sm" onclick="openBooking(${d.id},null)">Book Now</button></div>
         <div class="week-grid">${slots7}</div>
         <p style="font-size:12px;color:var(--text-muted);margin-top:16px">Appointment duration: ${d.apptDuration||30} minutes per slot</p>
       </div>
     </div>
-
     <div id="tab-reviews" class="tab-content">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
-        <div>
-          <div style="font-size:40px;font-weight:700;font-family:var(--font-display)">${d.rating} <span style="color:var(--warning)">★</span></div>
-          <div style="color:var(--text-secondary);font-size:14px">Based on ${d.reviewCount} reviews</div>
-        </div>
+        <div><div style="font-size:40px;font-weight:700;font-family:var(--font-display)">${d.rating} <span style="color:var(--warning)">★</span></div><div style="color:var(--text-secondary);font-size:14px">Based on ${d.reviewCount} reviews</div></div>
         <button class="btn btn-secondary btn-sm" onclick="openReviewModal(${d.id})">Write a Review</button>
       </div>
-      <div style="display:grid;gap:14px">
-        ${(d.reviews||[]).map(r => `
-          <div class="review-card">
-            <div class="review-stars">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div>
-            <p style="font-size:14px;color:var(--text-primary);line-height:1.6">${r.text}</p>
-            <div class="reviewer-info">
-              <div class="reviewer-avatar">${r.name[0]}</div>
-              <div>
-                <div style="font-size:13px;font-weight:500">${r.name}</div>
-                <div style="font-size:12px;color:var(--text-muted)">${r.date}</div>
-              </div>
-            </div>
-          </div>
-        `).join('')}
-      </div>
+      <div style="display:grid;gap:14px">${(d.reviews||[]).map(r=>`<div class="review-card"><div class="review-stars">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div><p style="font-size:14px;line-height:1.6">${r.text}</p><div class="reviewer-info"><div class="reviewer-avatar">${r.name[0]}</div><div><div style="font-size:13px;font-weight:500">${r.name}</div><div style="font-size:12px;color:var(--text-muted)">${r.date}</div></div></div></div>`).join('')}</div>
     </div>
-
     <div id="tab-info" class="tab-content">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
-        <div class="card">
-          <h3 style="font-weight:600;margin-bottom:16px">Practice Details</h3>
-          <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
-            <div><span style="color:var(--text-muted);display:block;font-size:12px;margin-bottom:2px">Practice Name</span>${d.practiceName}</div>
-            <div><span style="color:var(--text-muted);display:block;font-size:12px;margin-bottom:2px">Address</span>${d.address}, ${d.city}, ${d.county} ${d.postcode}</div>
-            <div><span style="color:var(--text-muted);display:block;font-size:12px;margin-bottom:2px">Phone</span>${d.phone}</div>
-            ${d.website ? `<div><span style="color:var(--text-muted);display:block;font-size:12px;margin-bottom:2px">Website</span><a href="${d.website}" style="color:var(--primary)">${d.website}</a></div>` : ''}
-          </div>
-        </div>
-        <div class="card">
-          <h3 style="font-weight:600;margin-bottom:16px">Map</h3>
-          <div id="mini-map-${d.id}" style="height:200px;border-radius:var(--radius);overflow:hidden;background:var(--bg-surface)"></div>
-        </div>
+        <div class="card"><h3 style="font-weight:600;margin-bottom:16px">Practice Details</h3><div style="display:flex;flex-direction:column;gap:10px;font-size:14px"><div><span style="color:var(--text-muted);display:block;font-size:12px;margin-bottom:2px">Practice Name</span>${d.practiceName}</div><div><span style="color:var(--text-muted);display:block;font-size:12px;margin-bottom:2px">Address</span>${d.address}, ${d.city}, ${d.county} ${d.postcode}</div><div><span style="color:var(--text-muted);display:block;font-size:12px;margin-bottom:2px">Phone</span>${d.phone}</div>${d.website?`<div><span style="color:var(--text-muted);display:block;font-size:12px;margin-bottom:2px">Website</span><a href="${d.website}" style="color:var(--primary)">${d.website}</a></div>`:''}</div></div>
+        <div class="card"><h3 style="font-weight:600;margin-bottom:16px">Map</h3><div id="mini-map-${d.id}" style="height:200px;border-radius:var(--radius);overflow:hidden;background:var(--bg-surface)"></div></div>
       </div>
-    </div>
-  `;
+    </div>`;
 
-  // Init mini map on profile
   setTimeout(() => {
     if (d.lat && d.lng) {
       const miniMap = L.map(`mini-map-${d.id}`).setView([d.lat, d.lng], 15);
@@ -1749,50 +1380,29 @@ function renderProfile(d) {
 }
 
 function generateWeekSlots(doctor) {
-  const days = [
-    { key: 'mon', label: 'Mon' },
-    { key: 'tue', label: 'Tue' },
-    { key: 'wed', label: 'Wed' },
-    { key: 'thu', label: 'Thu' },
-    { key: 'fri', label: 'Fri' },
-    { key: 'sat', label: 'Sat' },
-    { key: 'sun', label: 'Sun' },
-  ];
+  const days = [{key:'mon',label:'Mon'},{key:'tue',label:'Tue'},{key:'wed',label:'Wed'},{key:'thu',label:'Thu'},{key:'fri',label:'Fri'},{key:'sat',label:'Sat'},{key:'sun',label:'Sun'}];
   const startH = parseInt((doctor.startTime||'09:00').split(':')[0]);
   const endH = parseInt((doctor.endTime||'17:00').split(':')[0]);
   const dur = doctor.apptDuration || 30;
   const today = new Date();
   const todayDay = today.getDay() === 0 ? 6 : today.getDay() - 1;
-
   return days.map((day, i) => {
     const avail = (doctor.availability||{})[day.key];
     const d = new Date(today);
     d.setDate(d.getDate() + ((i - todayDay + 7) % 7));
     const dateStr = d.getDate() + '/' + (d.getMonth()+1);
-
     let slots = '';
     if (avail) {
       let h = startH, m = 0;
       while (h < endH) {
-        const hh = String(h).padStart(2,'0');
-        const mm = String(m).padStart(2,'0');
+        const hh = String(h).padStart(2,'0'), mm = String(m).padStart(2,'0');
         const isUnavail = Math.random() < 0.4;
-        slots += `<div class="time-slot ${isUnavail?'unavailable':''}" onclick="${isUnavail?'':''}">${hh}:${mm}</div>`;
-        m += dur;
-        if (m >= 60) { h++; m -= 60; }
+        slots += `<div class="time-slot ${isUnavail?'unavailable':''}">${hh}:${mm}</div>`;
+        m += dur; if (m >= 60) { h++; m -= 60; }
         if (slots.split('time-slot').length > 6) break;
       }
-    } else {
-      slots = '<div style="font-size:11px;color:var(--text-muted);text-align:center;padding:8px">Closed</div>';
-    }
-
-    return `
-      <div class="day-col">
-        <div class="day-name">${day.label}</div>
-        <div class="day-date" style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">${dateStr}</div>
-        ${slots}
-      </div>
-    `;
+    } else slots = '<div style="font-size:11px;color:var(--text-muted);text-align:center;padding:8px">Closed</div>';
+    return `<div class="day-col"><div class="day-name">${day.label}</div><div class="day-date" style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">${dateStr}</div>${slots}</div>`;
   }).join('');
 }
 
@@ -1805,16 +1415,10 @@ function switchTab(btn, tabId) {
 
 // ─── BOOKING ──────────────────────────────────────────────────────────────────
 function openBooking(doctorId, slot) {
-  const d = doctors.find(x => x.id === doctorId);
-  if (!d) return;
+  const d = doctors.find(x => x.id === doctorId) || { title:'', firstName:'', lastName:'', specialty:'', practiceName:'', startTime:'09:00', endTime:'17:00', apptDuration:30 };
   currentDoctorId = doctorId;
   selectedBookingSlot = slot;
-
-  document.getElementById('booking-doctor-info').innerHTML = `
-    <strong>${d.title} ${d.firstName} ${d.lastName}</strong><br>
-    <span style="color:var(--text-secondary)">${d.specialty} · ${d.practiceName}</span>
-  `;
-
+  document.getElementById('booking-doctor-info').innerHTML = `<strong>${d.title} ${d.firstName} ${d.lastName}</strong><br><span style="color:var(--text-secondary)">${d.specialty} · ${d.practiceName}</span>`;
   const today = new Date();
   const dateInput = document.getElementById('booking-date');
   dateInput.min = today.toISOString().split('T')[0];
@@ -1829,16 +1433,13 @@ function generateBookingSlots(doctor, dateStr) {
   const endH = parseInt((doctor.endTime||'17:00').split(':')[0]);
   const dur = doctor.apptDuration || 30;
   const container = document.getElementById('booking-slots');
-  let html = '';
-  let h = startH, m = 0;
+  let html = '', h = startH, m = 0;
   while (h < endH) {
     const hh = String(h).padStart(2,'0'), mm = String(m).padStart(2,'0');
     const timeStr = `${hh}:${mm}`;
     const taken = Math.random() < 0.35;
     html += `<button class="slot ${taken?'':'booking-time'}" ${taken?'disabled style="opacity:.4;cursor:default"':''} onclick="selectBookingSlot('${timeStr}',this)">${timeStr}</button>`;
-    m += dur;
-    if (m >= 60) { h++; m -= 60; }
-    if (h >= endH) break;
+    m += dur; if (m >= 60) { h++; m -= 60; } if (h >= endH) break;
   }
   container.innerHTML = html;
 }
@@ -1856,34 +1457,15 @@ async function submitBooking() {
   const phone  = document.getElementById('booking-phone').value.trim();
   const date   = document.getElementById('booking-date').value;
   const reason = document.getElementById('booking-reason').value.trim();
-
-  if (!name)               { showToast('Please enter your name', 'error');           return; }
-  if (!email)              { showToast('Please enter your email address', 'error');   return; }
-  if (!date)               { showToast('Please select a date', 'error');              return; }
-  if (!selectedBookingSlot){ showToast('Please select a time slot', 'error');         return; }
-
+  if (!name)  { showToast('Please enter your name', 'error'); return; }
+  if (!email) { showToast('Please enter your email address', 'error'); return; }
+  if (!date)  { showToast('Please select a date', 'error'); return; }
+  if (!selectedBookingSlot) { showToast('Please select a time slot', 'error'); return; }
   const btn = document.querySelector('#booking-modal .btn-accent');
   if (btn) { btn.disabled = true; btn.textContent = 'Booking...'; }
-
-  // selectedBookingSlot may be "Today 09:00", "Tomorrow 09:30", "Mon 10:00" etc.
-  // Extract just the time portion (last token after a space)
-  const timePart = selectedBookingSlot.includes(' ')
-    ? selectedBookingSlot.split(' ').pop()
-    : selectedBookingSlot;
-
+  const timePart = selectedBookingSlot.includes(' ') ? selectedBookingSlot.split(' ').pop() : selectedBookingSlot;
   try {
-    await callFunction('book-appointment', {
-      method: 'POST',
-      body: {
-        professional_id: String(currentDoctorId),
-        patient_name:    name,
-        patient_email:   email,
-        patient_phone:   phone  || null,
-        appt_date:       date,
-        appt_time:       timePart,
-        reason:          reason || null,
-      },
-    });
+    await callFunction('book-appointment', { method: 'POST', body: { professional_id: String(currentDoctorId), patient_name: name, patient_email: email, patient_phone: phone||null, appt_date: date, appt_time: timePart, reason: reason||null } });
     closeModal('booking-modal');
     showToast('✅ Appointment booked! A confirmation will be sent to ' + email, 'success');
   } catch (err) {
@@ -1896,17 +1478,14 @@ async function submitBooking() {
 // ─── REVIEW ───────────────────────────────────────────────────────────────────
 function openReviewModal(id) {
   currentDoctorId = id;
-  const d = doctors.find(x => x.id === id);
+  const d = doctors.find(x => x.id === id) || { title:'', firstName:'', lastName:'', specialty:'' };
   document.getElementById('review-doctor-info').innerHTML = `<strong>${d.title} ${d.firstName} ${d.lastName}</strong> · ${d.specialty}`;
   currentRating = 0;
   updateStars(0);
   document.getElementById('review-modal').classList.remove('hidden');
 }
 
-function setRating(val) {
-  currentRating = val;
-  updateStars(val);
-}
+function setRating(val) { currentRating = val; updateStars(val); }
 
 function updateStars(val) {
   document.querySelectorAll('#star-rating .star').forEach((s, i) => {
@@ -1919,28 +1498,15 @@ async function submitReview() {
   const text  = document.getElementById('review-text').value.trim();
   const name  = document.getElementById('review-name').value.trim() || 'Anonymous';
   const month = document.getElementById('review-date').value;
-
   if (!currentRating) { showToast('Please select a star rating', 'error'); return; }
-  if (!text)          { showToast('Please write your review', 'error');    return; }
-
+  if (!text) { showToast('Please write your review', 'error'); return; }
   const btn = document.querySelector('#review-modal .btn-primary');
   if (btn) { btn.disabled = true; btn.textContent = 'Submitting...'; }
-
   try {
-    await callFunction('submit-review', {
-      method: 'POST',
-      body: {
-        professional_id: String(currentDoctorId),
-        reviewer_name:   name,
-        rating:          currentRating,
-        review_text:     text,
-        visit_month:     month || null,
-      },
-    });
+    await callFunction('submit-review', { method: 'POST', body: { professional_id: String(currentDoctorId), reviewer_name: name, rating: currentRating, review_text: text, visit_month: month||null } });
     closeModal('review-modal');
     showToast('⭐ Thank you! Your review has been submitted and will appear once approved.', 'success');
   } catch (err) {
-    console.error('Review error:', err);
     showToast(err.message || 'Review submission failed — please try again.', 'error');
     if (btn) { btn.disabled = false; btn.textContent = 'Submit Review'; }
   }
@@ -1972,10 +1538,7 @@ function searchToClaim() {
   const results = doctors.filter(d => `${d.firstName} ${d.lastName}`.toLowerCase().includes(q));
   const container = document.getElementById('claim-results');
   if (!q) { container.innerHTML = ''; return; }
-  if (results.length === 0) {
-    container.innerHTML = '<div class="card" style="text-align:center;color:var(--text-muted);padding:24px">No profiles found. You may need to register as new.</div>';
-    return;
-  }
+  if (results.length === 0) { container.innerHTML = '<div class="card" style="text-align:center;color:var(--text-muted);padding:24px">No profiles found. You may need to register as new.</div>'; return; }
   container.innerHTML = results.map(d => `
     <div class="card" style="margin-bottom:12px;display:flex;align-items:center;justify-content:space-between">
       <div>
@@ -1984,8 +1547,7 @@ function searchToClaim() {
         ${d.claimed ? '<span class="badge badge-accent" style="margin-top:4px">Already claimed</span>' : '<span class="badge badge-warning" style="margin-top:4px">Unclaimed</span>'}
       </div>
       ${!d.claimed ? `<button class="btn btn-primary btn-sm" onclick="submitClaimRequest(${d.id})">Claim this profile</button>` : '<span style="font-size:13px;color:var(--text-muted)">Not available</span>'}
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
 async function submitClaimRequest(doctorId) {
@@ -1993,10 +1555,7 @@ async function submitClaimRequest(doctorId) {
   if (contactFields && contactFields.classList.contains('hidden')) {
     contactFields.classList.remove('hidden');
     contactFields.scrollIntoView({ behavior: 'smooth' });
-    document.querySelectorAll('[onclick^="submitClaimRequest"]').forEach(btn => {
-      btn.textContent = 'Submit Claim Request';
-      btn.setAttribute('onclick', `finaliseClaimRequest(${doctorId})`);
-    });
+    document.querySelectorAll('[onclick^="submitClaimRequest"]').forEach(btn => { btn.textContent = 'Submit Claim Request'; btn.setAttribute('onclick', `finaliseClaimRequest(${doctorId})`); });
     return;
   }
   await finaliseClaimRequest(doctorId);
@@ -2006,35 +1565,17 @@ async function finaliseClaimRequest(doctorId) {
   const requesterName  = document.getElementById('claim-requester-name')?.value.trim();
   const requesterEmail = document.getElementById('claim-requester-email')?.value.trim();
   const evidence       = document.getElementById('claim-evidence')?.value.trim();
-
-  if (!requesterName)  { showToast('Please enter your full name', 'error');    return; }
+  if (!requesterName)  { showToast('Please enter your full name', 'error'); return; }
   if (!requesterEmail) { showToast('Please enter your email address', 'error'); return; }
-
   const btns = document.querySelectorAll('[onclick*="finaliseClaimRequest"]');
   btns.forEach(b => { b.disabled = true; b.textContent = 'Submitting...'; });
-
   try {
-    await callFunction('submit-claim', {
-      method: 'POST',
-      body: {
-        professional_id: String(doctorId),
-        requester_name:  requesterName,
-        requester_email: requesterEmail,
-        evidence_notes:  evidence || null,
-      },
-    });
-    document.getElementById('claim-results').innerHTML = `
-      <div class="card" style="background:var(--accent-light);border:1.5px solid var(--accent);margin-top:16px">
-        <strong style="color:var(--accent)">🎉 Claim request submitted!</strong><br>
-        <span style="font-size:14px;color:var(--text-secondary)">
-          We will verify your identity and be in touch within 24 hours.
-        </span>
-      </div>`;
+    await callFunction('submit-claim', { method: 'POST', body: { professional_id: String(doctorId), requester_name: requesterName, requester_email: requesterEmail, evidence_notes: evidence||null } });
+    document.getElementById('claim-results').innerHTML = `<div class="card" style="background:var(--accent-light);border:1.5px solid var(--accent);margin-top:16px"><strong style="color:var(--accent)">🎉 Claim request submitted!</strong><br><span style="font-size:14px;color:var(--text-secondary)">We will verify your identity and be in touch within 24 hours.</span></div>`;
     const cf = document.getElementById('claim-contact-fields');
     if (cf) cf.classList.add('hidden');
     showToast('✅ Claim request submitted successfully!', 'success');
   } catch (err) {
-    console.error('Claim error:', err);
     showToast(err.message || 'Submission failed — please try again.', 'error');
     btns.forEach(b => { b.disabled = false; b.textContent = 'Submit Claim Request'; });
   }
@@ -2045,11 +1586,7 @@ function nextStep(n) {
     const requiredFields = getRequiredFields(currentStep);
     for (const fId of requiredFields) {
       const el = document.getElementById(fId);
-      if (el && !el.value.trim()) {
-        showToast(`Please fill in all required fields`, 'error');
-        el.focus();
-        return;
-      }
+      if (el && !el.value.trim()) { showToast('Please fill in all required fields', 'error'); el.focus(); return; }
     }
   }
   currentStep = n;
@@ -2064,75 +1601,44 @@ function getRequiredFields(step) {
 }
 
 function showStep(n) {
-  document.querySelectorAll('.step-content').forEach((s,i) => {
-    s.classList.toggle('active', i+1 === n);
-  });
+  document.querySelectorAll('.step-content').forEach((s,i) => s.classList.toggle('active', i+1 === n));
   document.getElementById('step-indicator').textContent = `Step ${n} of 4`;
-  for (let i = 1; i <= 4; i++) {
-    document.getElementById(`ps-${i}`).classList.toggle('done', i <= n);
-  }
+  for (let i = 1; i <= 4; i++) document.getElementById(`ps-${i}`).classList.toggle('done', i <= n);
 }
 
 async function submitRegistration() {
-  if (!document.getElementById('reg-terms').checked) {
-    showToast('Please accept the Terms of Service', 'error'); return;
-  }
+  if (!document.getElementById('reg-terms').checked) { showToast('Please accept the Terms of Service', 'error'); return; }
   const btn = document.querySelector('#step-4 .btn-accent');
   if (btn) { btn.disabled = true; btn.textContent = 'Submitting...'; }
-
   const payload = {
-    title:              document.getElementById('reg-title').value,
-    first_name:         document.getElementById('reg-firstname').value,
-    last_name:          document.getElementById('reg-lastname').value,
-    email:              document.getElementById('reg-email').value,
-    phone:              document.getElementById('reg-phone').value,
-    specialty:          document.getElementById('reg-specialty').value,
-    subspecialties:     document.getElementById('reg-subspecialties').value,
-    qualifications:     document.getElementById('reg-qualifications').value,
-    languages:          document.getElementById('reg-languages').value,
-    bio:                document.getElementById('reg-bio').value,
-    reg_number:         document.getElementById('reg-regnum').value,
-    experience:         document.getElementById('reg-experience').value,
-    practice_name:      document.getElementById('reg-practice-name').value,
-    address:            document.getElementById('reg-address1').value,
-    city:               document.getElementById('reg-city').value,
-    county:             document.getElementById('reg-county').value,
-    postcode:           document.getElementById('reg-postcode').value,
-    country:            document.getElementById('reg-country').value,
-    website:            document.getElementById('reg-website').value,
-    fee_min:            parseInt(document.getElementById('reg-fee-min').value)  || 0,
-    fee_max:            parseInt(document.getElementById('reg-fee-max').value)  || 0,
-    insurance:          document.getElementById('reg-insurance').value,
-    consultation_types: [
-      ...(document.getElementById('ct-in-person').checked ? ['in-person'] : []),
-      ...(document.getElementById('ct-video').checked     ? ['video']     : []),
-      ...(document.getElementById('ct-home').checked      ? ['home']      : []),
-      ...(document.getElementById('ct-phone').checked     ? ['phone']     : []),
-    ],
-    mon:               document.getElementById('day-mon').checked,
-    tue:               document.getElementById('day-tue').checked,
-    wed:               document.getElementById('day-wed').checked,
-    thu:               document.getElementById('day-thu').checked,
-    fri:               document.getElementById('day-fri').checked,
-    sat:               document.getElementById('day-sat').checked,
-    sun:               document.getElementById('day-sun').checked,
-    start_time:        document.getElementById('reg-start-time').value,
-    end_time:          document.getElementById('reg-end-time').value,
+    title: document.getElementById('reg-title').value, first_name: document.getElementById('reg-firstname').value,
+    last_name: document.getElementById('reg-lastname').value, email: document.getElementById('reg-email').value,
+    phone: document.getElementById('reg-phone').value, specialty: document.getElementById('reg-specialty').value,
+    subspecialties: document.getElementById('reg-subspecialties').value, qualifications: document.getElementById('reg-qualifications').value,
+    languages: document.getElementById('reg-languages').value, bio: document.getElementById('reg-bio').value,
+    reg_number: document.getElementById('reg-regnum').value, experience: document.getElementById('reg-experience').value,
+    practice_name: document.getElementById('reg-practice-name').value, address: document.getElementById('reg-address1').value,
+    city: document.getElementById('reg-city').value, county: document.getElementById('reg-county').value,
+    postcode: document.getElementById('reg-postcode').value, country: document.getElementById('reg-country').value,
+    website: document.getElementById('reg-website').value,
+    fee_min: parseInt(document.getElementById('reg-fee-min').value)||0, fee_max: parseInt(document.getElementById('reg-fee-max').value)||0,
+    insurance: document.getElementById('reg-insurance').value,
+    consultation_types: [...(document.getElementById('ct-in-person').checked?['in-person']:[]), ...(document.getElementById('ct-video').checked?['video']:[]), ...(document.getElementById('ct-home').checked?['home']:[]), ...(document.getElementById('ct-phone').checked?['phone']:[])],
+    mon: document.getElementById('day-mon').checked, tue: document.getElementById('day-tue').checked,
+    wed: document.getElementById('day-wed').checked, thu: document.getElementById('day-thu').checked,
+    fri: document.getElementById('day-fri').checked, sat: document.getElementById('day-sat').checked,
+    sun: document.getElementById('day-sun').checked,
+    start_time: document.getElementById('reg-start-time').value, end_time: document.getElementById('reg-end-time').value,
     appt_duration_mins: parseInt(document.getElementById('reg-appt-duration').value),
   };
-
   try {
     await callFunction('register-professional', { method: 'POST', body: payload });
     showToast('🎉 Registration submitted! We will review and approve within 24 hours.', 'success');
     setTimeout(() => showPage('home'), 1500);
   } catch (err) {
-    console.error('Registration error:', err);
     const msg = err.message || '';
-    if (msg.toLowerCase().includes('already exists') || msg.toLowerCase().includes('duplicate')) {
-      showToast('An account with this email already exists.', 'error');
-    } else {
-      showToast('Registration failed — please check your connection and try again.', 'error');
-    }
+    if (msg.toLowerCase().includes('already exists') || msg.toLowerCase().includes('duplicate')) showToast('An account with this email already exists.', 'error');
+    else showToast('Registration failed — please check your connection and try again.', 'error');
     if (btn) { btn.disabled = false; btn.textContent = 'Submit Registration ✓'; }
   }
 }
@@ -2141,68 +1647,43 @@ async function submitRegistration() {
 async function adminLogin() {
   const email = document.getElementById('admin-email').value.trim();
   const pw    = document.getElementById('admin-password').value;
-
   if (!email) { showToast('Please enter your email address', 'error'); return; }
-  if (!pw)    { showToast('Please enter your password', 'error');       return; }
-
+  if (!pw)    { showToast('Please enter your password', 'error'); return; }
   const btn = document.querySelector('#admin-login .btn-primary');
   if (btn) { btn.disabled = true; btn.textContent = 'Signing in...'; }
-
   try {
-    const result = await callFunction('auth-login', {
-      method: 'POST',
-      body: { email, password: pw },
-    });
-
+    const result = await callFunction('auth-login', { method: 'POST', body: { email, password: pw } });
     window._authToken = result.access_token;
     localStorage.setItem('_authToken', result.access_token);
-
     if (result.role === 'admin') {
-      isAdminLoggedIn = true;
-      isProfLoggedIn  = false;
-      loggedInProfId  = null;
+      isAdminLoggedIn = true; isProfLoggedIn = false; loggedInProfId = null;
       document.getElementById('admin-nav-btn').style.display = 'flex';
-      document.getElementById('logout-btn').style.display    = 'flex';
-      showPage('admin');
-      renderAdminSection();
-      showToast('Welcome back!', 'success');
-
-    } else if (result.role === 'professional') {
-      isProfLoggedIn  = true;
-      isAdminLoggedIn = false;
-      loggedInProfId  = result.professional_id;
       document.getElementById('logout-btn').style.display = 'flex';
-      if (result.professional_id) {
-        showDoctorProfile(result.professional_id);
-      } else {
-        showPage('home');
-      }
+      showPage('admin');
       showToast('Welcome back!', 'success');
-
+    } else if (result.role === 'professional') {
+      isProfLoggedIn = true; isAdminLoggedIn = false; loggedInProfId = result.professional_id;
+      document.getElementById('logout-btn').style.display = 'flex';
+      if (result.professional_id) showDoctorProfile(result.professional_id);
+      else showPage('home');
+      showToast('Welcome back!', 'success');
     } else {
-      showToast('Login succeeded but account role is not recognised. Please contact support.', 'error');
+      showToast('Login succeeded but account role is not recognised.', 'error');
     }
-
   } catch (err) {
-    console.error('Login error:', err);
     const msg = (err.message || '').toLowerCase();
-    if (msg.includes('invalid') || msg.includes('credentials') || msg.includes('password')) {
-      showToast('Incorrect email or password. Please try again.', 'error');
-    } else {
-      showToast('Login failed — please check your connection and try again.', 'error');
-    }
+    if (msg.includes('invalid') || msg.includes('credentials') || msg.includes('password')) showToast('Incorrect email or password. Please try again.', 'error');
+    else showToast('Login failed — please check your connection and try again.', 'error');
     if (btn) { btn.disabled = false; btn.textContent = 'Sign In'; }
   }
 }
 
 function logout() {
-  isAdminLoggedIn   = false;
-  isProfLoggedIn    = false;
-  loggedInProfId    = null;
+  isAdminLoggedIn = false; isProfLoggedIn = false; loggedInProfId = null;
   window._authToken = null;
   localStorage.removeItem('_authToken');
   document.getElementById('admin-nav-btn').style.display = 'none';
-  document.getElementById('logout-btn').style.display    = 'none';
+  document.getElementById('logout-btn').style.display = 'none';
   showPage('home');
   showToast('You have been signed out.');
 }
@@ -2218,140 +1699,122 @@ function adminNav(section) {
 async function renderAdminSection() {
   const c = document.getElementById('admin-main-content');
   if (!c) return;
-
-  if (adminSection === 'pending') {
-    await renderAdminPending();
-    updateAdminBadges();
-    return;
-  }
-
-  const sections = {
-    dashboard: renderAdminDashboard,
-    professionals: renderAdminProfessionals,
-    claims: renderAdminClaims,
-    reviews: renderAdminReviews,
-    settings: renderAdminSettings,
-  };
-
+  if (adminSection === 'pending')       { await renderAdminPending();        updateAdminBadges(); return; }
+  if (adminSection === 'dashboard')     { await renderAdminDashboard();      updateAdminBadges(); return; }
+  if (adminSection === 'professionals') { await renderAdminProfessionals();  updateAdminBadges(); return; }
+  if (adminSection === 'claims')        { await renderAdminClaims();         updateAdminBadges(); return; }
+  const sections = { reviews: renderAdminReviews, settings: renderAdminSettings };
   const fn = sections[adminSection];
   if (fn) c.innerHTML = fn();
   updateAdminBadges();
 }
 
-function renderAdminDashboard() {
-  const approved = doctors.filter(d=>d.status==='approved').length;
-  return `
-    <div class="admin-header-bar">
-      <div class="admin-title">Dashboard</div>
-      <div style="font-size:13px;color:var(--text-muted)">${new Date().toLocaleDateString('en-IE',{weekday:'long',year:'numeric',month:'long',day:'numeric'})}</div>
-    </div>
-    <div class="stats-row">
-      <div class="stat-card">
-        <div class="stat-label">Total Professionals</div>
-        <div class="stat-value">${doctors.length}</div>
-        <div class="stat-change">↑ ${approved} approved</div>
+// ─── ADMIN DASHBOARD — reads from Supabase ────────────────────────────────────
+async function renderAdminDashboard() {
+  const c = document.getElementById('admin-main-content');
+  c.innerHTML = `<div class="admin-header-bar"><div class="admin-title">Dashboard</div></div><div style="text-align:center;padding:48px;color:var(--text-muted)">Loading...</div>`;
+  try {
+    const result = await callFunction('admin-manage', { method: 'POST', body: { action: 'get_all_professionals' } });
+    const list = result.professionals || [];
+    const approved = list.filter(d => d.status === 'approved').length;
+    const pending  = list.filter(d => d.status === 'pending').length;
+    c.innerHTML = `
+      <div class="admin-header-bar">
+        <div class="admin-title">Dashboard</div>
+        <div style="font-size:13px;color:var(--text-muted)">${new Date().toLocaleDateString('en-IE',{weekday:'long',year:'numeric',month:'long',day:'numeric'})}</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-label">Pending Approvals</div>
-        <div class="stat-value">${pendingRegistrations.length}</div>
-        <div style="font-size:12px;color:var(--danger);margin-top:4px">${pendingRegistrations.length > 0 ? 'Requires action' : 'All clear'}</div>
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-label">Total Professionals</div><div class="stat-value">${list.length}</div><div class="stat-change">↑ ${approved} approved</div></div>
+        <div class="stat-card"><div class="stat-label">Pending Approvals</div><div class="stat-value">${pending}</div><div style="font-size:12px;color:var(--danger);margin-top:4px">${pending > 0 ? 'Requires action' : 'All clear'}</div></div>
+        <div class="stat-card"><div class="stat-label">Approved</div><div class="stat-value">${approved}</div><div class="stat-change">Active on platform</div></div>
+        <div class="stat-card"><div class="stat-label">Claimed Profiles</div><div class="stat-value">${list.filter(d => d.claimed).length}</div><div class="stat-change">Out of ${list.length} total</div></div>
       </div>
-      <div class="stat-card">
-        <div class="stat-label">Claim Requests</div>
-        <div class="stat-value">${claimRequests.filter(c=>c.status==='pending').length}</div>
-        <div style="font-size:12px;color:var(--warning);margin-top:4px">${claimRequests.filter(c=>c.status==='pending').length > 0 ? 'Awaiting review' : 'All resolved'}</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Total Reviews</div>
-        <div class="stat-value">${doctors.reduce((a,d)=>a+d.reviewCount,0)}</div>
-        <div class="stat-change">Avg. ${(doctors.reduce((a,d)=>a+d.rating,0)/doctors.length).toFixed(1)} ★</div>
-      </div>
-    </div>
-    <div class="card">
-      <h3 style="font-weight:600;margin-bottom:16px">Recent Registrations</h3>
-      <table class="data-table">
-        <thead><tr><th>Name</th><th>Specialty</th><th>City</th><th>Status</th><th>Action</th></tr></thead>
-        <tbody>
-          ${doctors.slice(-5).reverse().map(d=>`
-            <tr>
-              <td><strong>${d.title} ${d.firstName} ${d.lastName}</strong></td>
-              <td>${d.specialty}</td>
-              <td>${d.city}</td>
-              <td><span class="badge ${d.status==='approved'?'badge-accent':d.status==='pending'?'badge-warning':'badge-danger'}">${d.status}</span></td>
-              <td><button class="btn btn-ghost btn-sm" onclick="showDoctorProfile(${d.id})">View</button></td>
-            </tr>
-          `).join('')}
-        </tbody>
-      </table>
-    </div>`;
+      <div class="card">
+        <h3 style="font-weight:600;margin-bottom:16px">Recent Registrations</h3>
+        <table class="data-table">
+          <thead><tr><th>Name</th><th>Specialty</th><th>City</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody>
+            ${list.slice(0, 5).map(d => `
+              <tr>
+                <td><strong>${d.title||''} ${d.first_name} ${d.last_name}</strong></td>
+                <td>${d.specialty||'–'}</td>
+                <td>${d.city||'–'}</td>
+                <td><span class="badge ${d.status==='approved'?'badge-accent':d.status==='pending'?'badge-warning':'badge-danger'}">${d.status}</span></td>
+                <td><button class="btn btn-ghost btn-sm" onclick="showDoctorProfile('${d.id}')">View</button></td>
+              </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>`;
+  } catch (err) {
+    console.error('Dashboard error:', err);
+    c.innerHTML = `<div class="admin-header-bar"><div class="admin-title">Dashboard</div></div><div class="card" style="text-align:center;padding:48px;color:var(--danger)">Failed to load — ${err.message}</div>`;
+  }
 }
 
-function renderAdminProfessionals() {
-  return `
-    <div class="admin-header-bar">
-      <div class="admin-title">All Professionals</div>
-      <input class="input" style="width:250px" placeholder="Search…" oninput="filterAdminTable(this.value)">
-    </div>
-    <div class="card">
-      <table class="data-table" id="admin-prof-table">
-        <thead><tr><th>Name</th><th>Specialty</th><th>Location</th><th>Status</th><th>Claimed</th><th>Rating</th><th>Actions</th></tr></thead>
-        <tbody>
-          ${doctors.map(d=>`
-            <tr id="arow-${d.id}">
-              <td><strong>${d.title} ${d.firstName} ${d.lastName}</strong><br><span style="font-size:12px;color:var(--text-muted)">${d.email}</span></td>
-              <td>${d.specialty}</td>
-              <td>${d.city}, ${d.county}</td>
-              <td>
-                <select style="font-size:12px;padding:4px 8px;border-radius:var(--radius-sm);border:1px solid var(--border)" onchange="changeStatus(${d.id},this.value)">
-                  <option value="approved" ${d.status==='approved'?'selected':''}>Approved</option>
-                  <option value="pending" ${d.status==='pending'?'selected':''}>Pending</option>
-                  <option value="suspended" ${d.status==='suspended'?'selected':''}>Suspended</option>
-                </select>
-              </td>
-              <td>${d.claimed ? '<span class="badge badge-accent">Yes</span>' : '<span class="badge badge-gray">No</span>'}</td>
-              <td>${d.rating > 0 ? `${d.rating} ★` : '–'}</td>
-              <td>
-                <div style="display:flex;gap:6px">
-                  <button class="btn btn-ghost btn-sm" onclick="openEditModal(${d.id})">Edit</button>
-                  <button class="btn btn-danger btn-sm" onclick="deleteDoctor(${d.id})">Delete</button>
-                </div>
-              </td>
-            </tr>
-          `).join('')}
-        </tbody>
-      </table>
-    </div>`;
+// ─── ADMIN PROFESSIONALS — reads from Supabase ────────────────────────────────
+async function renderAdminProfessionals() {
+  const c = document.getElementById('admin-main-content');
+  c.innerHTML = `<div class="admin-header-bar"><div class="admin-title">All Professionals</div></div><div style="text-align:center;padding:48px;color:var(--text-muted)">Loading...</div>`;
+  try {
+    const result = await callFunction('admin-manage', { method: 'POST', body: { action: 'get_all_professionals' } });
+    const list = result.professionals || [];
+    c.innerHTML = `
+      <div class="admin-header-bar">
+        <div class="admin-title">All Professionals (${list.length})</div>
+        <input class="input" style="width:250px" placeholder="Search…" oninput="filterAdminTable(this.value)">
+      </div>
+      <div class="card">
+        <table class="data-table" id="admin-prof-table">
+          <thead><tr><th>Name</th><th>Specialty</th><th>Location</th><th>Status</th><th>Claimed</th><th>Actions</th></tr></thead>
+          <tbody>
+            ${list.map(d => `
+              <tr id="arow-${d.id}">
+                <td><strong>${d.title||''} ${d.first_name} ${d.last_name}</strong><br><span style="font-size:12px;color:var(--text-muted)">${d.email}</span></td>
+                <td>${d.specialty||'–'}</td>
+                <td>${d.city||'–'}, ${d.county||'–'}</td>
+                <td>
+                  <select style="font-size:12px;padding:4px 8px;border-radius:var(--radius-sm);border:1px solid var(--border)" onchange="changeStatus('${d.id}', this.value)">
+                    <option value="approved"  ${d.status==='approved' ?'selected':''}>Approved</option>
+                    <option value="pending"   ${d.status==='pending'  ?'selected':''}>Pending</option>
+                    <option value="suspended" ${d.status==='suspended'?'selected':''}>Suspended</option>
+                  </select>
+                </td>
+                <td>${d.claimed ? '<span class="badge badge-accent">Yes</span>' : '<span class="badge badge-gray">No</span>'}</td>
+                <td>
+                  <div style="display:flex;gap:6px">
+                    <button class="btn btn-ghost btn-sm" onclick="showDoctorProfile('${d.id}')">View</button>
+                    <button class="btn btn-danger btn-sm" onclick="deleteDoctor('${d.id}')">Delete</button>
+                  </div>
+                </td>
+              </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>`;
+  } catch (err) {
+    console.error('Professionals error:', err);
+    c.innerHTML = `<div class="admin-header-bar"><div class="admin-title">All Professionals</div></div><div class="card" style="text-align:center;padding:48px;color:var(--danger)">Failed to load — ${err.message}</div>`;
+  }
 }
 
+// ─── ADMIN PENDING — reads from Supabase ─────────────────────────────────────
 async function renderAdminPending() {
   const c = document.getElementById('admin-main-content');
-  c.innerHTML = `<div class="admin-header-bar"><div class="admin-title">Pending Approvals</div></div>
-    <div style="text-align:center;padding:48px;color:var(--text-muted)">Loading...</div>`;
-
+  c.innerHTML = `<div class="admin-header-bar"><div class="admin-title">Pending Approvals</div></div><div style="text-align:center;padding:48px;color:var(--text-muted)">Loading...</div>`;
   try {
-    const result = await callFunction('admin-manage', {
-      method: 'POST',
-      body: { action: 'get_pending' },
-    });
+    const result = await callFunction('admin-manage', { method: 'POST', body: { action: 'get_pending' } });
     const list = result.professionals || [];
-
     if (list.length === 0) {
-      c.innerHTML = `<div class="admin-header-bar"><div class="admin-title">Pending Approvals</div></div>
-        <div class="card" style="text-align:center;padding:48px;color:var(--text-muted)">
-          <div style="font-size:40px;margin-bottom:12px">✅</div>
-          <div style="font-size:16px;font-weight:500">No pending registrations</div>
-        </div>`;
+      c.innerHTML = `<div class="admin-header-bar"><div class="admin-title">Pending Approvals</div></div><div class="card" style="text-align:center;padding:48px;color:var(--text-muted)"><div style="font-size:40px;margin-bottom:12px">✅</div><div style="font-size:16px;font-weight:500">No pending registrations</div></div>`;
       return;
     }
-
     c.innerHTML = `<div class="admin-header-bar"><div class="admin-title">Pending Approvals (${list.length})</div></div>` +
       list.map(d => `
         <div class="card" style="margin-bottom:16px">
           <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px">
             <div>
-              <div style="font-family:var(--font-display);font-size:17px;font-weight:700">${d.title || ''} ${d.first_name} ${d.last_name}</div>
-              <div style="color:var(--text-secondary);font-size:14px;margin-top:4px">${d.specialty || '–'} · ${d.practice_name || '–'}, ${d.city || '–'}</div>
-              <div style="font-size:13px;color:var(--text-muted);margin-top:4px">Reg: ${d.reg_number || 'N/A'} · ${d.email}</div>
+              <div style="font-family:var(--font-display);font-size:17px;font-weight:700">${d.title||''} ${d.first_name} ${d.last_name}</div>
+              <div style="color:var(--text-secondary);font-size:14px;margin-top:4px">${d.specialty||'–'} · ${d.practice_name||'–'}, ${d.city||'–'}</div>
+              <div style="font-size:13px;color:var(--text-muted);margin-top:4px">Reg: ${d.reg_number||'N/A'} · ${d.email}</div>
             </div>
             <div style="display:flex;gap:8px">
               <button class="btn btn-accent btn-sm" onclick="approveRegistration('${d.id}')">✓ Approve</button>
@@ -2359,67 +1822,57 @@ async function renderAdminPending() {
             </div>
           </div>
           <div style="margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;font-size:13px">
-            <div><span style="color:var(--text-muted)">Experience:</span> ${d.experience || '–'}</div>
-            <div><span style="color:var(--text-muted)">Phone:</span> ${d.phone || '–'}</div>
-            <div><span style="color:var(--text-muted)">Fee:</span> €${d.fee_min || '?'}–€${d.fee_max || '?'}</div>
+            <div><span style="color:var(--text-muted)">Experience:</span> ${d.experience||'–'}</div>
+            <div><span style="color:var(--text-muted)">Phone:</span> ${d.phone||'–'}</div>
+            <div><span style="color:var(--text-muted)">Fee:</span> €${d.fee_min||'?'}–€${d.fee_max||'?'}</div>
           </div>
           ${d.bio ? `<div style="margin-top:12px;font-size:13px;color:var(--text-secondary);padding:12px;background:var(--bg-surface);border-radius:var(--radius-sm)">${d.bio}</div>` : ''}
-        </div>
-      `).join('');
+        </div>`).join('');
   } catch (err) {
     console.error('Error loading pending:', err);
-    c.innerHTML = `<div class="admin-header-bar"><div class="admin-title">Pending Approvals</div></div>
-      <div class="card" style="text-align:center;padding:48px;color:var(--danger)">Failed to load — ${err.message}</div>`;
+    c.innerHTML = `<div class="admin-header-bar"><div class="admin-title">Pending Approvals</div></div><div class="card" style="text-align:center;padding:48px;color:var(--danger)">Failed to load — ${err.message}</div>`;
   }
 }
 
-function renderAdminClaims() {
-  if (claimRequests.length === 0) {
-    return `<div class="admin-header-bar"><div class="admin-title">Profile Claim Requests</div></div>
-      <div class="card" style="text-align:center;padding:48px;color:var(--text-muted)">
-        <div style="font-size:40px;margin-bottom:12px">🔑</div>
-        <div style="font-size:16px;font-weight:500">No pending claim requests</div>
-      </div>`;
-  }
-  return `
-    <div class="admin-header-bar"><div class="admin-title">Claim Requests (${claimRequests.length})</div></div>
-    ${claimRequests.map(c => `
-      <div class="card" style="margin-bottom:12px">
-        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
-          <div>
-            <div style="font-weight:600">Claim for: ${c.doctorName}</div>
-            <div style="font-size:13px;color:var(--text-secondary)">Requested by: ${c.requesterEmail}</div>
-            <div style="font-size:12px;color:var(--text-muted)">${new Date(c.requestDate).toLocaleDateString()}</div>
+// ─── ADMIN CLAIMS — reads from Supabase ──────────────────────────────────────
+async function renderAdminClaims() {
+  const c = document.getElementById('admin-main-content');
+  c.innerHTML = `<div class="admin-header-bar"><div class="admin-title">Claim Requests</div></div><div style="text-align:center;padding:48px;color:var(--text-muted)">Loading...</div>`;
+  try {
+    const result = await callFunction('admin-manage', { method: 'POST', body: { action: 'get_claims' } });
+    const list = result.claims || [];
+    if (list.length === 0) {
+      c.innerHTML = `<div class="admin-header-bar"><div class="admin-title">Claim Requests</div></div><div class="card" style="text-align:center;padding:48px;color:var(--text-muted)"><div style="font-size:40px;margin-bottom:12px">🔑</div><div style="font-size:16px;font-weight:500">No pending claim requests</div></div>`;
+      return;
+    }
+    c.innerHTML = `<div class="admin-header-bar"><div class="admin-title">Claim Requests (${list.length})</div></div>` +
+      list.map(cl => `
+        <div class="card" style="margin-bottom:12px">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+            <div>
+              <div style="font-weight:600">Claim for: ${cl.professionals?.first_name||''} ${cl.professionals?.last_name||cl.professional_id}</div>
+              <div style="font-size:13px;color:var(--text-secondary)">Requested by: ${cl.requester_name} (${cl.requester_email})</div>
+              <div style="font-size:12px;color:var(--text-muted)">${new Date(cl.created_at).toLocaleDateString()}</div>
+            </div>
+            <span class="badge ${cl.status==='pending'?'badge-warning':cl.status==='approved'?'badge-accent':'badge-danger'}">${cl.status}</span>
+            ${cl.status==='pending' ? `<div style="display:flex;gap:8px"><button class="btn btn-accent btn-sm" onclick="approveClaim('${cl.id}')">Approve</button><button class="btn btn-danger btn-sm" onclick="rejectClaim('${cl.id}')">Reject</button></div>` : ''}
           </div>
-          <span class="badge ${c.status==='pending'?'badge-warning':c.status==='approved'?'badge-accent':'badge-danger'}">${c.status}</span>
-          ${c.status==='pending' ? `
-            <div style="display:flex;gap:8px">
-              <button class="btn btn-accent btn-sm" onclick="approveClaim(${c.id})">Approve</button>
-              <button class="btn btn-danger btn-sm" onclick="rejectClaim(${c.id})">Reject</button>
-            </div>` : ''}
-        </div>
-      </div>
-    `).join('')}`;
+        </div>`).join('');
+  } catch (err) {
+    console.error('Claims error:', err);
+    c.innerHTML = `<div class="admin-header-bar"><div class="admin-title">Claim Requests</div></div><div class="card" style="text-align:center;padding:48px;color:var(--danger)">Failed to load — ${err.message}</div>`;
+  }
 }
 
 function renderAdminReviews() {
-  const allReviews = doctors.flatMap(d => (d.reviews||[]).map(r => ({...r, doctorName: `${d.title} ${d.firstName} ${d.lastName}`, doctorId: d.id})));
+  const allReviews = doctors.flatMap(d => (d.reviews||[]).map(r => ({...r, doctorName:`${d.title} ${d.firstName} ${d.lastName}`, doctorId:d.id})));
   return `
     <div class="admin-header-bar"><div class="admin-title">All Reviews (${allReviews.length})</div></div>
     <div class="card">
       <table class="data-table">
         <thead><tr><th>Doctor</th><th>Reviewer</th><th>Rating</th><th>Review</th><th>Date</th><th>Action</th></tr></thead>
         <tbody>
-          ${allReviews.map(r=>`
-            <tr>
-              <td><strong>${r.doctorName}</strong></td>
-              <td>${r.name}</td>
-              <td style="color:var(--warning)">${'★'.repeat(r.rating)}</td>
-              <td style="max-width:250px;font-size:13px">${r.text.substring(0,80)}…</td>
-              <td style="white-space:nowrap">${r.date}</td>
-              <td><button class="btn btn-danger btn-sm" style="font-size:11px">Remove</button></td>
-            </tr>
-          `).join('')}
+          ${allReviews.map(r=>`<tr><td><strong>${r.doctorName}</strong></td><td>${r.name}</td><td style="color:var(--warning)">${'★'.repeat(r.rating)}</td><td style="max-width:250px;font-size:13px">${r.text.substring(0,80)}…</td><td style="white-space:nowrap">${r.date}</td><td><button class="btn btn-danger btn-sm" style="font-size:11px">Remove</button></td></tr>`).join('')}
         </tbody>
       </table>
     </div>`;
@@ -2433,13 +1886,9 @@ function renderAdminSettings() {
         <h3 style="font-weight:600;margin-bottom:16px">Site Configuration</h3>
         <div style="display:flex;flex-direction:column;gap:14px">
           <div class="form-group"><label class="form-label">Platform Name</label><input class="input" value="MyHealthAxis"></div>
-          <div class="form-group"><label class="form-label">Support Email</label><input class="input" value="support [at] yourdomain.ie"></div>
-          <div class="form-group"><label class="form-label">Default Language</label>
-            <select class="select"><option>English</option><option>Irish</option></select>
-          </div>
-          <div class="form-group"><label class="form-label">Timezone</label>
-            <select class="select"><option>Europe/Dublin (GMT)</option><option>Europe/London (GMT)</option></select>
-          </div>
+          <div class="form-group"><label class="form-label">Support Email</label><input class="input" value="support@myhealthaxis.ie"></div>
+          <div class="form-group"><label class="form-label">Default Language</label><select class="select"><option>English</option><option>Irish</option></select></div>
+          <div class="form-group"><label class="form-label">Timezone</label><select class="select"><option>Europe/Dublin (GMT)</option><option>Europe/London (GMT)</option></select></div>
         </div>
         <button class="btn btn-primary" style="margin-top:16px" onclick="showToast('Settings saved!','success')">Save Settings</button>
       </div>
@@ -2447,7 +1896,6 @@ function renderAdminSettings() {
         <h3 style="font-weight:600;margin-bottom:16px">Registration Settings</h3>
         <div style="display:flex;flex-direction:column;gap:12px">
           <label class="checkbox-label"><input type="checkbox" checked> Require admin approval for new professionals</label>
-          <label class="checkbox-label"><input type="checkbox" checked> Verify registration numbers against IMC database</label>
           <label class="checkbox-label"><input type="checkbox" checked> Send welcome email on approval</label>
           <label class="checkbox-label"><input type="checkbox"> Auto-approve professionals from NHS/HSE directory</label>
         </div>
@@ -2456,7 +1904,7 @@ function renderAdminSettings() {
       <div class="card">
         <h3 style="font-weight:600;margin-bottom:16px">Admin Account</h3>
         <div style="display:flex;flex-direction:column;gap:14px">
-          <div class="form-group"><label class="form-label">Admin Email</label><input class="input" value="admin [at] yourdomain.ie"></div>
+          <div class="form-group"><label class="form-label">Admin Email</label><input class="input" value="myhealthaxisapp@gmail.com"></div>
           <div class="form-group"><label class="form-label">New Password</label><input class="input" type="password" placeholder="Leave blank to keep current"></div>
         </div>
         <button class="btn btn-primary" style="margin-top:16px" onclick="showToast('Account updated!','success')">Update Account</button>
@@ -2464,15 +1912,14 @@ function renderAdminSettings() {
     </div>`;
 }
 
+// ─── ADMIN ACTIONS — all write to Supabase ────────────────────────────────────
 async function approveRegistration(id) {
   if (!confirm('Approve this professional?')) return;
   try {
     await callFunction('admin-manage', { method: 'POST', body: { action: 'approve_professional', id } });
     showToast('Professional approved and listed!', 'success');
     await renderAdminPending();
-  } catch (err) {
-    showToast(err.message || 'Failed to approve', 'error');
-  }
+  } catch (err) { showToast(err.message || 'Failed to approve', 'error'); }
 }
 
 async function rejectRegistration(id) {
@@ -2481,36 +1928,47 @@ async function rejectRegistration(id) {
     await callFunction('admin-manage', { method: 'POST', body: { action: 'reject_professional', id } });
     showToast('Registration rejected.', 'success');
     await renderAdminPending();
-  } catch (err) {
-    showToast(err.message || 'Failed to reject', 'error');
-  }
+  } catch (err) { showToast(err.message || 'Failed to reject', 'error'); }
 }
 
-function approveClaim(id) {
-  const c = claimRequests.find(x => x.id === id);
-  if (c) {
-    c.status = 'approved';
-    const d = doctors.find(x => x.id === c.doctorId);
-    if (d) d.claimed = true;
+async function approveClaim(id) {
+  if (!confirm('Approve this claim?')) return;
+  try {
+    await callFunction('admin-manage', { method: 'POST', body: { action: 'approve_claim', id } });
     showToast('Claim approved! Professional now has access.', 'success');
-    renderAdminSection();
+    await renderAdminClaims();
+  } catch (err) { showToast(err.message || 'Failed to approve claim', 'error'); }
+}
+
+async function rejectClaim(id) {
+  if (!confirm('Reject this claim?')) return;
+  try {
+    await callFunction('admin-manage', { method: 'POST', body: { action: 'reject_claim', id } });
+    showToast('Claim rejected.', 'success');
+    await renderAdminClaims();
+  } catch (err) { showToast(err.message || 'Failed to reject claim', 'error'); }
+}
+
+async function changeStatus(id, status) {
+  const actionMap = { approved: 'approve_professional', suspended: 'suspend_professional', rejected: 'reject_professional' };
+  const action = actionMap[status];
+  if (!action) return;
+  try {
+    await callFunction('admin-manage', { method: 'POST', body: { action, id } });
+    showToast(`Status updated to ${status}`, 'success');
+  } catch (err) {
+    showToast(err.message || 'Failed to update status', 'error');
+    await renderAdminProfessionals();
   }
 }
 
-function rejectClaim(id) {
-  const c = claimRequests.find(x => x.id === id);
-  if (c) { c.status = 'rejected'; showToast('Claim rejected.'); renderAdminSection(); }
-}
-
-function changeStatus(id, status) {
-  const d = doctors.find(x => x.id === id);
-  if (d) { d.status = status; showToast(`Status updated to ${status}`, 'success'); }
-}
-
-function deleteDoctor(id) {
+async function deleteDoctor(id) {
   if (!confirm('Delete this professional? This cannot be undone.')) return;
-  const idx = doctors.findIndex(x => x.id === id);
-  if (idx > -1) { doctors.splice(idx, 1); showToast('Professional removed.'); renderAdminSection(); }
+  try {
+    await callFunction('admin-manage', { method: 'POST', body: { action: 'delete_professional', id } });
+    showToast('Professional removed.', 'success');
+    await renderAdminProfessionals();
+  } catch (err) { showToast(err.message || 'Failed to delete', 'error'); }
 }
 
 function filterAdminTable(q) {
@@ -2521,15 +1979,13 @@ function filterAdminTable(q) {
 }
 
 function updateAdminBadges() {
-  const pb = document.getElementById('pending-count-badge');
-  const cb = document.getElementById('claims-count-badge');
-  if (pb) pb.textContent = pendingRegistrations.length > 0 ? pendingRegistrations.length : '';
-  if (cb) cb.textContent = claimRequests.filter(c=>c.status==='pending').length > 0 ? claimRequests.filter(c=>c.status==='pending').length : '';
+  // Badges are now cosmetic only — real counts come from Supabase when sections load
+  // We keep them in sync when we know the count
 }
 
 // ─── EDIT PROFILE ─────────────────────────────────────────────────────────────
 function openEditModal(id) {
-  const d = doctors.find(x => x.id === id);
+  const d = doctors.find(x => String(x.id) === String(id));
   if (!d) return;
   editingDoctorId = id;
   document.getElementById('edit-modal-body').innerHTML = `
@@ -2560,7 +2016,7 @@ function openEditModal(id) {
 }
 
 function saveProfileEdit() {
-  const d = doctors.find(x => x.id === editingDoctorId);
+  const d = doctors.find(x => String(x.id) === String(editingDoctorId));
   if (!d) return;
   d.firstName = document.getElementById('edit-fn').value;
   d.lastName = document.getElementById('edit-ln').value;
@@ -2580,12 +2036,11 @@ function saveProfileEdit() {
   closeModal('edit-modal');
   showToast('Profile updated successfully!', 'success');
   if (document.getElementById('profile-page').classList.contains('active')) renderProfile(d);
-  if (document.getElementById('admin').classList.contains('active')) renderAdminSection();
 }
 
-// ─── CLAIM MODAL ──────────────────────────────────────────────────────────────
 function openClaimModal(id) {
   const d = doctors.find(x => x.id === id);
+  if (!d) return;
   showPage('register');
   startRegistration('claim');
   document.getElementById('claim-search-input').value = d.firstName + ' ' + d.lastName;
