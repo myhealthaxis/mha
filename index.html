@@ -630,7 +630,7 @@
           <ul class="footer-links">
             <li><a href="#">About</a></li>
             <li><a href="#">Blog</a></li>
-            <li><a href="#" onclick="showToast('Contact us: info [at] myhealthaxis.ie')">Contact</a></li>
+            <li><a href="mailto:info@myhealthaxis.ie">Contact</a></li>
             <li><a href="#">Privacy Policy</a></li>
           </ul>
         </div>
@@ -870,54 +870,6 @@
             <button class="btn btn-accent btn-lg" onclick="submitRegistration()">Submit Registration ✓</button>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════ PROFESSIONAL LOGIN ═══════════════════════════════ -->
-<div id="prof-login" class="page">
-  <div style="min-height:calc(100vh - 64px);display:flex;align-items:center;justify-content:center;padding:24px">
-    <div class="login-card" style="width:100%;max-width:440px">
-      <div style="margin-bottom:20px">
-        <button class="btn btn-ghost btn-sm" onclick="showPage('register')">← Back</button>
-      </div>
-      <div class="login-logo" style="font-family:var(--font-display);font-weight:800;font-size:22px;text-align:center;margin-bottom:6px">
-        My<span style="color:var(--teal-bright)">Health</span>Axis
-      </div>
-      <div style="text-align:center;color:var(--text-secondary);font-size:14px;margin-bottom:28px">
-        Healthcare Professional Portal
-      </div>
-      <div style="display:flex;flex-direction:column;gap:16px">
-        <div class="form-group">
-          <label class="form-label">Email Address</label>
-          <input class="input" type="text" id="prof-email" placeholder="your email address"
-            onkeydown="if(event.key==='Enter')profLogin()">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Password</label>
-          <input class="input" type="password" id="prof-password" placeholder="••••••••"
-            onkeydown="if(event.key==='Enter')profLogin()">
-        </div>
-        <div style="text-align:right;margin-top:-8px">
-          <a href="#" onclick="showProfForgotPassword()" style="font-size:13px;color:var(--primary)">Forgot your password?</a>
-        </div>
-        <button class="btn btn-primary btn-full btn-lg" id="prof-login-btn" onclick="profLogin()">Sign In</button>
-      </div>
-      <div id="prof-forgot-panel" class="hidden" style="margin-top:20px;padding:16px;background:var(--bg-surface);border-radius:var(--radius);border:1px solid var(--border)">
-        <div style="font-size:14px;font-weight:600;margin-bottom:8px">Reset your password</div>
-        <div style="font-size:13px;color:var(--text-secondary);margin-bottom:12px">Enter your registered email address and we will send you a reset link.</div>
-        <div style="display:flex;gap:8px">
-          <input class="input" type="text" id="prof-reset-email" placeholder="your email address" style="flex:1">
-          <button class="btn btn-primary" onclick="sendProfPasswordReset()">Send</button>
-        </div>
-        <div id="prof-reset-msg" style="margin-top:10px;font-size:13px"></div>
-      </div>
-      <div style="margin-top:20px;text-align:center;font-size:13px;color:var(--text-muted)">
-        Not registered yet? <a href="#" onclick="showPage('register')" style="color:var(--primary);font-weight:500">Register your practice</a>
-      </div>
-      <div style="margin-top:10px;text-align:center;font-size:12px;color:var(--text-muted)">
-        <a href="#" onclick="showPage('admin-login')" style="color:var(--text-muted)">Admin login →</a>
       </div>
     </div>
   </div>
@@ -1191,58 +1143,6 @@ function initSearchPage() {
   setTimeout(initMap, 200);
 }
 
-// ─── NORMALISE DOCTOR ─────────────────────────────────────────────────────────
-// Converts a Supabase snake_case record OR a local camelCase sample record
-// into the consistent camelCase shape that renderDoctorCard / renderProfile
-// and all map functions expect.
-function normaliseDoctor(p) {
-  // Availability: Supabase returns a nested object from the JOIN;
-  // sample data stores it inline. Handle both.
-  const avail = p.availability || {};
-  return {
-    id:                p.id,
-    title:             p.title             || '',
-    firstName:         p.first_name        || p.firstName        || '',
-    lastName:          p.last_name         || p.lastName         || '',
-    specialty:         p.specialty         || '',
-    subspecialties:    p.subspecialties    || '',
-    bio:               p.bio               || '',
-    qualifications:    p.qualifications    || '',
-    languages:         p.languages         || 'English',
-    practiceName:      p.practice_name     || p.practiceName     || '',
-    address:           p.address           || '',
-    city:              p.city              || '',
-    county:            p.county            || '',
-    postcode:          p.postcode          || '',
-    phone:             p.phone             || '',
-    website:           p.website           || '',
-    lat:               parseFloat(p.lat)   || null,
-    lng:               parseFloat(p.lng)   || null,
-    feeMin:            p.fee_min           ?? p.feeMin           ?? 0,
-    feeMax:            p.fee_max           ?? p.feeMax           ?? 0,
-    insurance:         p.insurance         || '',
-    consultationTypes: p.consultation_types|| p.consultationTypes|| ['in-person'],
-    status:            p.status            || 'approved',
-    claimed:           p.claimed           || false,
-    rating:            parseFloat(p.rating)|| 0,
-    reviewCount:       p.review_count      ?? p.reviewCount      ?? 0,
-    reviews:           p.reviews           || [],
-    // Availability fields — flattened for generateSlots / renderProfile
-    availability: {
-      mon: avail.mon ?? p.mon ?? true,
-      tue: avail.tue ?? p.tue ?? true,
-      wed: avail.wed ?? p.wed ?? true,
-      thu: avail.thu ?? p.thu ?? true,
-      fri: avail.fri ?? p.fri ?? true,
-      sat: avail.sat ?? p.sat ?? false,
-      sun: avail.sun ?? p.sun ?? false,
-    },
-    startTime:    avail.start_time         || p.startTime        || '09:00',
-    endTime:      avail.end_time           || p.endTime          || '17:30',
-    apptDuration: avail.appt_duration_mins || p.apptDuration     || 30,
-  };
-}
-
 async function filterResults() {
   const q    = document.getElementById('search-q')?.value   || '';
   const loc  = document.getElementById('search-loc')?.value  || '';
@@ -1255,8 +1155,7 @@ async function filterResults() {
 
   try {
     const results = await callFunction('search-professionals', { method: 'GET', body: JSON.stringify({ q, city: loc, specialty: spec }) });
-    const raw  = Array.isArray(results) ? results : [];
-    const list = raw.map(normaliseDoctor);
+    const list = Array.isArray(results) ? results : [];
     count.textContent = `${list.length} professional${list.length !== 1 ? 's' : ''} found`;
     container.innerHTML = list.length ? list.map(d => renderDoctorCard(d)).join('') : `<div style="text-align:center;padding:40px;color:var(--text-muted)"><div style="font-size:40px;margin-bottom:12px">🔍</div><div style="font-size:16px;font-weight:500;margin-bottom:8px">No results found</div><div style="font-size:14px">Try adjusting your search criteria</div></div>`;
     updateMapMarkers(list);
@@ -1269,7 +1168,7 @@ async function filterResults() {
       return (!q2 || name.includes(q2) || d.specialty.toLowerCase().includes(q2) || (d.subspecialties||'').toLowerCase().includes(q2))
           && (!loc2 || d.city.toLowerCase().includes(loc2) || (d.county||'').toLowerCase().includes(loc2))
           && (!spec || d.specialty === spec);
-    }).map(normaliseDoctor);
+    });
     count.textContent = `${filtered.length} professional${filtered.length !== 1 ? 's' : ''} found`;
     container.innerHTML = filtered.length ? filtered.map(d => renderDoctorCard(d)).join('') : `<div style="text-align:center;padding:40px;color:var(--text-muted)"><div style="font-size:40px;margin-bottom:12px">🔍</div><div style="font-size:16px;font-weight:500;margin-bottom:8px">No results found</div></div>`;
     updateMapMarkers(filtered);
@@ -1277,7 +1176,7 @@ async function filterResults() {
 }
 
 function renderDoctorCard(d) {
-  const initials = ((d.firstName||'?')[0] + (d.lastName||'?')[0]).toUpperCase();
+  const initials = d.firstName[0] + d.lastName[0];
   const stars = '★'.repeat(Math.round(d.rating)) + '☆'.repeat(5 - Math.round(d.rating));
   const slots = generateSlots(d, new Date(), 3);
   const ctIcons = (d.consultationTypes||['in-person']).map(t => ({'in-person':'🏥',video:'💻',phone:'📞',home:'🏠'}[t]||'🏥')).join(' ');
@@ -1342,20 +1241,12 @@ function generateSlots(doctor, fromDate, count) {
 // ─── MAP ──────────────────────────────────────────────────────────────────────
 let mapInstance = null;
 
-async function initMap() {
+function initMap() {
   const mapEl = document.getElementById('map');
   if (!mapEl || mapInstance) return;
   mapInstance = L.map('map').setView([53.3498, -6.2603], 10);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }).addTo(mapInstance);
-  // Load initial map markers from the database
-  try {
-    const results = await callFunction('search-professionals', { method: 'GET', body: JSON.stringify({ q: '', city: '', specialty: '' }) });
-    const list = (Array.isArray(results) ? results : []).map(normaliseDoctor);
-    updateMapMarkers(list);
-  } catch (err) {
-    // Fall back to sample data while Edge Functions are being set up
-    updateMapMarkers(doctors.filter(d => d.status === 'approved').map(normaliseDoctor));
-  }
+  updateMapMarkers(doctors.filter(d => d.status === 'approved'));
 }
 
 function updateMapMarkers(docs) {
@@ -1364,9 +1255,8 @@ function updateMapMarkers(docs) {
   markers = [];
   docs.forEach(d => {
     if (!d.lat || !d.lng) return;
-    const initials = (d.firstName||'?')[0].toUpperCase() + (d.lastName||'?')[0].toUpperCase();
-    const icon = L.divIcon({ html: `<div style="background:#00B8D4;color:#fff;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.2)">${initials}</div>`, className: '', iconSize: [36,36], iconAnchor: [18,18] });
-    const m = L.marker([d.lat, d.lng], { icon }).addTo(mapInstance).bindPopup(`<div style="min-width:200px"><strong style="font-size:14px">${d.title} ${d.firstName} ${d.lastName}</strong><br><span style="color:#5A6070;font-size:12px">${d.specialty}</span><br><span style="color:#5A6070;font-size:12px">${d.practiceName || d.city}</span><br><button onclick="showDoctorProfile('${d.id}')" style="margin-top:8px;background:#00B8D4;color:#fff;border:none;padding:6px 12px;border-radius:6px;font-size:12px;cursor:pointer;width:100%">View Profile</button></div>`);
+    const icon = L.divIcon({ html: `<div style="background:#00B8D4;color:#fff;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.2)">${d.firstName[0]}${d.lastName[0]}</div>`, className: '', iconSize: [36,36], iconAnchor: [18,18] });
+    const m = L.marker([d.lat, d.lng], { icon }).addTo(mapInstance).bindPopup(`<div style="min-width:200px"><strong style="font-size:14px">${d.title} ${d.firstName} ${d.lastName}</strong><br><span style="color:#5A6070;font-size:12px">${d.specialty}</span><br><span style="color:#5A6070;font-size:12px">${d.practiceName}</span><br><button onclick="showDoctorProfile(${d.id})" style="margin-top:8px;background:#00B8D4;color:#fff;border:none;padding:6px 12px;border-radius:6px;font-size:12px;cursor:pointer;width:100%">View Profile</button></div>`);
     m.on('click', () => { document.querySelectorAll('.doctor-card').forEach(c => c.classList.remove('active')); document.getElementById(`dc-${d.id}`)?.classList.add('active'); });
     markers.push(m);
   });
@@ -1409,7 +1299,7 @@ async function showDoctorProfile(id) {
 }
 
 function renderProfile(d) {
-  const initials = ((d.firstName||'?')[0] + (d.lastName||'?')[0]).toUpperCase();
+  const initials = d.firstName[0] + d.lastName[0];
   const dayLabels = { mon:'Monday', tue:'Tuesday', wed:'Wednesday', thu:'Thursday', fri:'Friday', sat:'Saturday', sun:'Sunday' };
   const availDays = Object.entries(d.availability||{}).filter(([k,v])=>v).map(([k])=>dayLabels[k]).join(', ');
   const ctLabels = { 'in-person':'In-person', video:'Video', phone:'Phone', home:'Home visit' };
@@ -1751,50 +1641,6 @@ async function submitRegistration() {
     else showToast('Registration failed — please check your connection and try again.', 'error');
     if (btn) { btn.disabled = false; btn.textContent = 'Submit Registration ✓'; }
   }
-}
-
-// ─── PROFESSIONAL LOGIN ───────────────────────────────────────────────────────
-async function profLogin() {
-  const email = document.getElementById('prof-email').value.trim();
-  const pw    = document.getElementById('prof-password').value;
-  if (!email) { showToast('Please enter your email address', 'error'); return; }
-  if (!pw)    { showToast('Please enter your password', 'error');       return; }
-  const btn = document.getElementById('prof-login-btn');
-  if (btn) { btn.disabled = true; btn.textContent = 'Signing in...'; }
-  try {
-    const result = await callFunction('auth-login', { method: 'POST', body: { email, password: pw } });
-    window._authToken = result.access_token;
-    if (result.role === 'professional') {
-      isProfLoggedIn = true; isAdminLoggedIn = false; loggedInProfId = result.professional_id;
-      document.getElementById('logout-btn').style.display = 'flex';
-      showToast('Welcome back!', 'success');
-      if (result.professional_id) { await showDoctorProfile(result.professional_id); } else { showPage('home'); }
-    } else if (result.role === 'admin') {
-      isAdminLoggedIn = true; isProfLoggedIn = false; loggedInProfId = null;
-      document.getElementById('admin-nav-btn').style.display = 'flex';
-      document.getElementById('logout-btn').style.display = 'flex';
-      showPage('admin'); renderAdminSection(); showToast('Redirected to admin panel.', 'success');
-    } else { showToast('Login succeeded but role not recognised. Please contact support.', 'error'); }
-  } catch (err) {
-    const msg = (err.message || '').toLowerCase();
-    if (msg.includes('invalid') || msg.includes('credentials') || msg.includes('password')) {
-      showToast('Incorrect email or password. Please try again.', 'error');
-    } else { showToast('Login failed — please check your connection and try again.', 'error'); }
-  } finally { if (btn) { btn.disabled = false; btn.textContent = 'Sign In'; } }
-}
-function showProfForgotPassword() {
-  const panel = document.getElementById('prof-forgot-panel');
-  if (panel) { panel.classList.toggle('hidden'); if (!panel.classList.contains('hidden')) document.getElementById('prof-reset-email').focus(); }
-}
-async function sendProfPasswordReset() {
-  const email = document.getElementById('prof-reset-email').value.trim();
-  const msg   = document.getElementById('prof-reset-msg');
-  if (!email) { if (msg) { msg.style.color='var(--danger)'; msg.textContent='Please enter your email address.'; } return; }
-  try {
-    const { error } = await _supabase.auth.resetPasswordForEmail(email, { redirectTo: window.location.origin + window.location.pathname });
-    if (error) throw error;
-    if (msg) { msg.style.color='var(--accent)'; msg.textContent='Reset link sent — check your inbox.'; }
-  } catch (err) { if (msg) { msg.style.color='var(--danger)'; msg.textContent=err.message||'Could not send reset email. Please try again.'; } }
 }
 
 // ─── ADMIN LOGIN ──────────────────────────────────────────────────────────────
